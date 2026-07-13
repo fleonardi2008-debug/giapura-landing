@@ -11,27 +11,37 @@ export function ProductoVisual({ className = "" }: { className?: string }) {
     >
       <defs>
         <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#3a2c1e" />
-          <stop offset="1" stopColor="#241a11" />
+          <stop offset="0" stopColor="#ffffff" />
+          <stop offset="1" stopColor="#efe8d8" />
         </linearGradient>
         <linearGradient id="mani" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#e6a94b" />
-          <stop offset="1" stopColor="#b97f2c" />
+          <stop offset="0" stopColor="#f5cf89" />
+          <stop offset="1" stopColor="#c88a3c" />
         </linearGradient>
         <linearGradient id="lid" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#f2c65a" />
-          <stop offset="1" stopColor="#c9922f" />
+          <stop offset="0" stopColor="#8a3d10" />
+          <stop offset="1" stopColor="#6d2900" />
         </linearGradient>
       </defs>
       {/* Tapa */}
       <rect x="58" y="22" width="84" height="26" rx="7" fill="url(#lid)" />
-      <rect x="62" y="46" width="76" height="10" rx="3" fill="#8f6a24" />
+      <rect x="62" y="46" width="76" height="10" rx="3" fill="#753b18" />
       {/* Cuerpo del frasco */}
-      <rect x="50" y="56" width="100" height="212" rx="20" fill="url(#glass)" />
+      <rect
+        x="50"
+        y="56"
+        width="100"
+        height="212"
+        rx="20"
+        fill="url(#glass)"
+        stroke="#6d2900"
+        strokeOpacity="0.25"
+        strokeWidth="1.5"
+      />
       {/* Contenido (pasta de maní) */}
       <rect x="58" y="96" width="84" height="164" rx="12" fill="url(#mani)" />
       {/* Etiqueta */}
-      <rect x="62" y="130" width="76" height="96" rx="8" fill="#f6efe2" />
+      <rect x="62" y="130" width="76" height="96" rx="8" fill="#f6f2e7" />
       <text
         x="100"
         y="168"
@@ -39,7 +49,7 @@ export function ProductoVisual({ className = "" }: { className?: string }) {
         fontFamily="Georgia, serif"
         fontSize="18"
         fontWeight="700"
-        fill="#1e1712"
+        fill="#6d2900"
       >
         giapura
       </text>
@@ -50,13 +60,13 @@ export function ProductoVisual({ className = "" }: { className?: string }) {
         fontFamily="sans-serif"
         fontSize="8"
         letterSpacing="1.5"
-        fill="#9a8b78"
+        fill="#8a755c"
       >
         100% MANÍ
       </text>
-      <rect x="80" y="204" width="40" height="4" rx="2" fill="#d9a441" />
+      <rect x="80" y="204" width="40" height="4" rx="2" fill="#6d2900" />
       {/* Brillo del vidrio */}
-      <rect x="60" y="66" width="10" height="190" rx="5" fill="#ffffff" opacity="0.06" />
+      <rect x="60" y="66" width="10" height="190" rx="5" fill="#ffffff" opacity="0.5" />
     </svg>
   );
 }
