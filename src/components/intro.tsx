@@ -1,63 +1,81 @@
 "use client";
 
-import { motion } from "motion/react";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { ProductoVisual } from "@/components/producto-visual";
+import { Wordmark } from "@/components/wordmark";
+import { CountdownGrande } from "@/components/countdown";
 
 /**
- * Intro de entrada: el frasco aparece con una animación y una frase, antes del hero.
- * Placeholder del producto (SVG) hasta tener el render 3D real.
+ * Intro: el frasco es el protagonista y acompaña el scroll (estilo Unreal Water).
+ * Arriba un temporizador (no "giapura presenta"). Al bajar, el frasco se transforma
+ * y aparece el título de la primera tanda nacional.
  */
 export function Intro() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  // El frasco baja, se agranda un poco y rota suave a medida que se scrollea.
+  const jarY = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const jarScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+  const jarRotate = useTransform(scrollYProgress, [0, 1], [0, 6]);
+
+  // La intro (temporizador + subtítulo) se desvanece; el título aparece.
+  const introOpacity = useTransform(scrollYProgress, [0, 0.35], [1, 0]);
+  const tituloOpacity = useTransform(scrollYProgress, [0.4, 0.75], [0, 1]);
+  const tituloY = useTransform(scrollYProgress, [0.4, 0.75], [30, 0]);
+
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 text-center">
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/15 blur-[120px]" />
+    <section ref={ref} className="relative h-[220vh]">
+      <div className="sticky top-0 flex h-screen flex-col items-center justify-center overflow-hidden px-6 text-center">
+        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/10 blur-[130px]" />
 
-      <motion.p
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.8 }}
-        className="mb-8 text-xs uppercase tracking-[0.4em] text-muted"
-      >
-        Giapura presenta
-      </motion.p>
+        {/* Temporizador arriba (reemplaza "giapura presenta") */}
+        <motion.div style={{ opacity: introOpacity }} className="absolute top-16">
+          <CountdownGrande />
+        </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, scale: 0.7, rotate: -8 }}
-        animate={{ opacity: 1, scale: 1, rotate: 0 }}
-        transition={{ delay: 0.4, duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-        className="relative"
-      >
-        <div className="animate-float-slow">
-          <ProductoVisual className="h-64 w-auto drop-shadow-[0_30px_60px_rgba(0,0,0,0.6)] sm:h-80" />
-        </div>
-      </motion.div>
+        {/* Frasco protagonista */}
+        <motion.div style={{ y: jarY, scale: jarScale, rotate: jarRotate }} className="relative">
+          <ProductoVisual className="h-72 w-auto drop-shadow-[0_40px_70px_rgba(109,41,0,0.22)] sm:h-96" />
+          <div className="mt-6 flex justify-center">
+            <Wordmark className="text-3xl sm:text-4xl" />
+          </div>
+        </motion.div>
 
-      <motion.h2
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.1, duration: 0.9 }}
-        className="font-display mt-10 max-w-lg text-2xl font-medium text-cream sm:text-3xl"
-      >
-        Seis meses de espera.
-        <br />
-        <span className="text-gradient-gold">Un solo día para tenerla.</span>
-      </motion.h2>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.8, duration: 1 }}
-        className="absolute bottom-8 flex flex-col items-center gap-2 text-muted"
-      >
-        <span className="text-xs uppercase tracking-widest">Deslizá</span>
-        <motion.span
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.6 }}
-          className="text-lg"
+        {/* Subtítulo intro */}
+        <motion.p
+          style={{ opacity: introOpacity }}
+          className="absolute bottom-28 max-w-md text-base text-cream-dim sm:text-lg"
         >
-          ↓
-        </motion.span>
-      </motion.div>
+          Después de 6 meses sin poder hacer envíos, llegó el día.
+        </motion.p>
+
+        {/* Título revelado al scrollear */}
+        <motion.h1
+          style={{ opacity: tituloOpacity, y: tituloY }}
+          className="font-display absolute bottom-24 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl"
+        >
+          La primer tanda <span className="text-gradient-gold">Nacional</span> de Giapura
+        </motion.h1>
+
+        {/* Hint de scroll */}
+        <motion.div
+          style={{ opacity: introOpacity }}
+          className="absolute bottom-8 flex flex-col items-center gap-1 text-muted"
+        >
+          <motion.span
+            animate={{ y: [0, 8, 0] }}
+            transition={{ repeat: Infinity, duration: 1.6 }}
+            className="text-lg"
+          >
+            ↓
+          </motion.span>
+        </motion.div>
+      </div>
     </section>
   );
 }

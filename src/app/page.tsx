@@ -1,23 +1,23 @@
 import { Intro } from "@/components/intro";
-import { Hero } from "@/components/hero";
+import { Comprar } from "@/components/comprar";
+import { PorQue } from "@/components/por-que";
 import { TicketFundador } from "@/components/ticket-fundador";
-import { Producto } from "@/components/producto";
-import { Cobertura } from "@/components/cobertura";
 import { Testimonios } from "@/components/testimonios";
 import { Faq } from "@/components/faq";
-import { Contacto } from "@/components/contacto";
+import { Cobertura } from "@/components/cobertura";
+import { Gracias } from "@/components/gracias";
 
 export default function Home() {
   return (
     <main>
       <Intro />
-      <Hero />
+      <Comprar />
+      <PorQue />
       <TicketFundador />
-      <Producto />
-      <Cobertura />
       <Testimonios />
       <Faq />
-      <Contacto />
+      <Cobertura />
+      <Gracias />
     </main>
   );
 }

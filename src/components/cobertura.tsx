@@ -22,7 +22,7 @@ export function Cobertura() {
         <div>
           <Reveal>
             <span className="text-xs uppercase tracking-widest text-gold">
-              A dónde llegamos
+              ¿Hasta dónde llegamos?
             </span>
           </Reveal>
           <Reveal delay={0.05}>

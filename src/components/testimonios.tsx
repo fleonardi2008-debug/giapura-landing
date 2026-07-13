@@ -1,40 +1,48 @@
 import { Reveal } from "@/components/reveal";
+import { BotonComprar } from "@/components/boton-comprar";
 
-// Placeholder: reemplazar por testimonios/capturas reales de Instagram.
-const TESTIMONIOS = [
-  { texto: "Hace meses que la sigo en Instagram esperando que llegue a mi ciudad. Por fin.", autor: "@caro.fit" },
-  { texto: "La probé en Buenos Aires y no podía creer que no la vendieran en el interior. Ya era hora.", autor: "@martin.rosario" },
-  { texto: "Adictiva. En serio. Es la única pasta de maní que vale la pena.", autor: "@lu.entrena" },
-  { texto: "La estuve esperando 6 meses. Hoy caí a la web apenas abrió.", autor: "@fede.mdq" },
+// Placeholder tipo mensajes de chat — reemplazar por las capturas reales de DMs.
+const MENSAJES = [
+  "che, es LA mejor pasta de maní que probé. lejos.",
+  "no tiene nada que ver con las del super, se nota la diferencia",
+  "la terminé en dos días jajaja necesito más",
+  "por fin algo real, sin azúcar ni cosas raras",
+  "la comparé con las marcas grandes y les pasa el trapo",
+  "¿cuándo llega al interior? la quiero sí o sí",
 ];
 
 export function Testimonios() {
   return (
-    <section className="px-6 py-24">
-      <div className="mx-auto max-w-5xl">
+    <section className="border-y border-line bg-bg-2 px-6 py-28">
+      <div className="mx-auto max-w-4xl">
         <Reveal>
-          <h2 className="font-display text-center text-4xl font-semibold sm:text-5xl">
-            La venían <span className="text-gradient-gold">pidiendo</span>
+          <h2 className="font-display text-center text-4xl font-semibold leading-tight sm:text-5xl">
+            No hace falta que me <span className="text-gradient-gold">creas a mí</span>.
           </h2>
         </Reveal>
-        <Reveal delay={0.1}>
-          <p className="mx-auto mt-4 max-w-xl text-center text-cream-dim">
-            No lo decimos nosotros. Lo dice la gente que llenó nuestros mensajes durante
-            6 meses.
+        <Reveal delay={0.08}>
+          <p className="mx-auto mt-5 max-w-xl text-center text-cream-dim">
+            Durante estos meses me llegaron cientos de mensajes. Esto es lo que dice la
+            gente que ya la probó.
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-2">
-          {TESTIMONIOS.map((t, i) => (
-            <Reveal key={t.autor} delay={0.1 + i * 0.08}>
-              <figure className="h-full rounded-2xl border border-line bg-bg-2 p-6">
-                <div className="mb-3 text-gold">★★★★★</div>
-                <blockquote className="text-cream">“{t.texto}”</blockquote>
-                <figcaption className="mt-4 text-sm text-muted">{t.autor}</figcaption>
-              </figure>
+        <div className="mt-14 columns-1 gap-4 sm:columns-2 lg:columns-3">
+          {MENSAJES.map((m, i) => (
+            <Reveal key={i} delay={0.05 + (i % 3) * 0.06} className="mb-4 break-inside-avoid">
+              <div className="rounded-2xl rounded-tl-sm border border-line bg-bg px-5 py-4 text-cream shadow-sm">
+                <p className="leading-relaxed">{m}</p>
+                <p className="mt-2 text-[11px] text-muted">vía Instagram · 12:0{i}</p>
+              </div>
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={0.2}>
+          <div className="mt-14 flex justify-center">
+            <BotonComprar label="Quiero el mío" />
+          </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -1,61 +1,90 @@
 import { Reveal } from "@/components/reveal";
-
-// TODO: reemplazar el copy del beneficio cuando el usuario lo defina.
-const BENEFICIOS = [
-  {
-    titulo: "Precio de fundador",
-    texto: "El precio de esta preventa no se vuelve a repetir. Lo conseguís solo hoy.",
-  },
-  {
-    titulo: "Edición numerada",
-    texto: "Tu pack de la primera tanda nacional viene identificado como fundador.",
-  },
-  {
-    titulo: "Primero en la fila",
-    texto: "Acceso anticipado a los próximos lanzamientos, antes que nadie.",
-  },
-];
+import { TicketVisual } from "@/components/ticket-visual";
+import { BotonComprar } from "@/components/boton-comprar";
 
 export function TicketFundador() {
   return (
-    <section className="relative border-y border-line bg-bg-2 px-6 py-24">
-      <div className="mx-auto max-w-4xl text-center">
+    <section id="fundador" className="px-6 py-32">
+      <div className="mx-auto max-w-2xl text-center">
         <Reveal>
-          <span className="inline-block rounded-full border border-gold/40 px-4 py-1 text-xs uppercase tracking-widest text-gold">
-            Solo en estas 24 horas
-          </span>
+          <span className="text-xs uppercase tracking-[0.4em] text-gold">Para los primeros</span>
         </Reveal>
+
         <Reveal delay={0.05}>
-          <h2 className="font-display mt-6 text-4xl font-semibold sm:text-5xl">
-            El <span className="text-gradient-gold">Ticket de Fundador</span>
+          <h2 className="font-display mt-8 text-4xl font-semibold leading-tight sm:text-5xl">
+            No estás por comprar solo una pasta de maní.
           </h2>
         </Reveal>
+
         <Reveal delay={0.1}>
-          <p className="mx-auto mt-4 max-w-2xl text-cream-dim">
-            Los que compren durante la preventa no se llevan solo el producto. Se llevan
-            un lugar en la historia de Giapura — y beneficios que después dejan de existir.
+          <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-cream-dim">
+            Durante las primeras 24 horas, todas las personas que compren Giapura van a
+            recibir un <span className="font-medium text-cream">Ticket de Fundador</span>.
           </p>
         </Reveal>
+        <Reveal delay={0.15}>
+          <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-cream-dim">
+            Cada Ticket de Fundador está numerado. Y ese número va a ser tuyo para siempre.
+          </p>
+        </Reveal>
+      </div>
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-3">
-          {BENEFICIOS.map((b, i) => (
-            <Reveal key={b.titulo} delay={0.15 + i * 0.08}>
-              <div className="h-full rounded-2xl border border-line bg-bg-3/60 p-6 text-left">
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-gold/15 text-gold">
-                  ★
-                </div>
-                <h3 className="font-display text-lg font-semibold text-cream">{b.titulo}</h3>
-                <p className="mt-2 text-sm text-muted">{b.texto}</p>
-              </div>
-            </Reveal>
-          ))}
+      <Reveal delay={0.1} className="mx-auto mt-16 max-w-md">
+        <TicketVisual />
+      </Reveal>
+
+      <div className="mx-auto mt-28 max-w-2xl space-y-24 text-center">
+        <div>
+          <Reveal>
+            <h3 className="font-display text-3xl font-semibold sm:text-4xl">
+              ¿Qué significa ser <span className="text-gradient-gold">fundador</span>?
+            </h3>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-cream-dim">
+              Significa haber confiado cuando todo esto recién empezaba. Y esa confianza
+              nunca va a pasar desapercibida.
+            </p>
+          </Reveal>
+          <Reveal delay={0.14}>
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-cream-dim">
+              A partir de ahora, cada tanto voy a abrir oportunidades reservadas únicamente
+              para quienes tengan un Ticket de Fundador. A veces será un acceso anticipado.
+              Otras, un beneficio exclusivo. O la posibilidad de participar en decisiones
+              importantes para la marca.
+            </p>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-cream">
+              Nunca va a ser exactamente lo mismo. Pero siempre va a ser solo para ustedes.
+            </p>
+          </Reveal>
         </div>
 
-        <Reveal delay={0.4}>
-          <p className="mt-10 text-sm text-muted">
-            Cuando el contador llegue a cero, el Ticket de Fundador desaparece para siempre.
-          </p>
-        </Reveal>
+        <div>
+          <Reveal>
+            <h3 className="font-display text-3xl font-semibold sm:text-4xl">
+              Pero hay una condición.
+            </h3>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-cream-dim">
+              Solo existen durante las primeras 24 horas. Cuando termine esta primera
+              tanda, no va a haber forma de conseguir uno.
+            </p>
+          </Reveal>
+          <Reveal delay={0.14}>
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-cream">
+              Dentro de unos años, quiero que ese número siga significando una sola cosa:
+              que vos estuviste acá cuando todo recién empezaba.
+            </p>
+          </Reveal>
+          <Reveal delay={0.22}>
+            <div className="mt-12">
+              <BotonComprar label="Quiero ser fundador" />
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
