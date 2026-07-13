@@ -17,14 +17,17 @@ export function TicketFundador() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-cream-dim">
-            Durante las primeras 24 horas, todas las personas que compren Giapura van a
-            recibir un <span className="font-medium text-cream">Ticket de Fundador</span>.
+          <p className="mx-auto mt-10 max-w-xl text-lg leading-relaxed text-cream-dim">
+            Si comprás durante las primeras 24 horas, vas a recibir un{" "}
+            <span className="font-medium text-cream">Ticket de Fundador</span>.
           </p>
         </Reveal>
         <Reveal delay={0.15}>
-          <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-cream-dim">
-            Cada Ticket de Fundador está numerado. Y ese número va a ser tuyo para siempre.
+          <p className="mx-auto mt-6 text-lg text-cream-dim">Cada ticket está numerado.</p>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <p className="mx-auto mt-2 text-lg text-cream">
+            Y ese número va a ser tuyo para siempre.
           </p>
         </Reveal>
       </div>
@@ -33,58 +36,56 @@ export function TicketFundador() {
         <TicketVisual />
       </Reveal>
 
-      <div className="mx-auto mt-28 max-w-2xl space-y-24 text-center">
-        <div>
-          <Reveal>
-            <h3 className="font-display text-3xl font-semibold sm:text-4xl">
-              ¿Qué significa ser <span className="text-gradient-gold">fundador</span>?
-            </h3>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-cream-dim">
-              Significa haber confiado cuando todo esto recién empezaba. Y esa confianza
-              nunca va a pasar desapercibida.
-            </p>
-          </Reveal>
-          <Reveal delay={0.14}>
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-cream-dim">
-              A partir de ahora, cada tanto voy a abrir oportunidades reservadas únicamente
-              para quienes tengan un Ticket de Fundador. A veces será un acceso anticipado.
-              Otras, un beneficio exclusivo. O la posibilidad de participar en decisiones
-              importantes para la marca.
-            </p>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-cream">
-              Nunca va a ser exactamente lo mismo. Pero siempre va a ser solo para ustedes.
-            </p>
-          </Reveal>
-        </div>
+      <div className="mx-auto mt-32 max-w-2xl text-center">
+        <Reveal>
+          <h3 className="font-display text-3xl font-semibold sm:text-4xl">
+            ¿Qué significa ser <span className="text-gradient-gold">fundador</span>?
+          </h3>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <p className="mx-auto mt-10 max-w-xl text-lg leading-relaxed text-cream-dim">
+            Significa haber confiado cuando todo esto recién empezaba.
+          </p>
+        </Reveal>
+        <Reveal delay={0.14}>
+          <p className="mx-auto mt-6 text-lg text-cream">Y esa confianza va a tener recompensas.</p>
+        </Reveal>
 
-        <div>
-          <Reveal>
-            <h3 className="font-display text-3xl font-semibold sm:text-4xl">
-              Pero hay una condición.
-            </h3>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-cream-dim">
-              Solo existen durante las primeras 24 horas. Cuando termine esta primera
-              tanda, no va a haber forma de conseguir uno.
-            </p>
-          </Reveal>
-          <Reveal delay={0.14}>
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-cream">
-              Dentro de unos años, quiero que ese número siga significando una sola cosa:
-              que vos estuviste acá cuando todo recién empezaba.
-            </p>
-          </Reveal>
-          <Reveal delay={0.22}>
-            <div className="mt-12">
-              <BotonComprar label="Quiero ser fundador" />
-            </div>
-          </Reveal>
+        <div className="mx-auto mt-10 flex max-w-xs flex-col gap-3">
+          {["Accesos anticipados.", "Beneficios exclusivos.", "Y cosas que voy a ir revelando con el tiempo."].map(
+            (t, i) => (
+              <Reveal key={t} delay={0.2 + i * 0.08}>
+                <p className="rounded-full border border-line bg-bg-2 px-5 py-3 text-cream">{t}</p>
+              </Reveal>
+            )
+          )}
         </div>
+      </div>
+
+      <div className="mx-auto mt-32 max-w-2xl text-center">
+        <Reveal>
+          <h3 className="font-display text-3xl font-semibold sm:text-4xl">
+            Pero hay una condición.
+          </h3>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <p className="mx-auto mt-10 max-w-xl text-lg leading-relaxed text-cream-dim">
+            Los Tickets de Fundador solo existen durante las primeras 24 horas.
+          </p>
+        </Reveal>
+        <Reveal delay={0.14}>
+          <p className="mx-auto mt-8 text-xl text-muted">Después...</p>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <p className="font-display mx-auto mt-2 text-2xl font-semibold text-cream sm:text-3xl">
+            No va a haber forma de conseguir uno.
+          </p>
+        </Reveal>
+        <Reveal delay={0.28}>
+          <div className="mt-14">
+            <BotonComprar label="Quiero ser fundador" />
+          </div>
+        </Reveal>
       </div>
     </section>
   );
