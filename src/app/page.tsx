@@ -1,3 +1,4 @@
+import { BarraFija } from "@/components/barra-fija";
 import { Intro } from "@/components/intro";
 import { Comprar } from "@/components/comprar";
 import { PorQue } from "@/components/por-que";
@@ -10,6 +11,7 @@ import { Gracias } from "@/components/gracias";
 export default function Home() {
   return (
     <main>
+      <BarraFija />
       <Intro />
       <Comprar />
       <PorQue />
