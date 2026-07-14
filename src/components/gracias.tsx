@@ -1,12 +1,14 @@
 import { Reveal } from "@/components/reveal";
 import { BotonComprar } from "@/components/boton-comprar";
 import { Wordmark } from "@/components/wordmark";
+import { Aurora } from "@/components/aurora";
 
 export function Gracias() {
   return (
     <section id="gracias" className="relative overflow-hidden bg-dark px-6 py-32 text-center text-paper">
-      <div className="pointer-events-none absolute left-1/2 top-1/3 h-[420px] w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold-bright/10 blur-[130px]" />
+      <Aurora tone="dark" />
 
+      <div className="relative z-10">
       <Reveal>
         <span className="text-xs uppercase tracking-[0.4em] text-gold-bright">Gracias</span>
       </Reveal>
@@ -53,6 +55,7 @@ export function Gracias() {
           </p>
         </div>
       </Reveal>
+      </div>
     </section>
   );
 }

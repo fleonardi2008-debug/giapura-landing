@@ -76,4 +76,35 @@ body {
 }
 .animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
 
+/* Aurora: manchas de color que derivan lento detrás de las secciones */
+@keyframes aurora-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(6%, -8%) scale(1.15); }
+  66% { transform: translate(-7%, 5%) scale(0.92); }
+}
+.animate-aurora { animation: aurora-drift 24s ease-in-out infinite; }
+.animate-aurora-2 { animation: aurora-drift 30s ease-in-out infinite reverse; }
+
+/* Botón premium: brillo que barre + lift */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shine > .shine {
+  position: absolute;
+  inset: 0;
+  transform: translateX(-120%) skewX(-20deg);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+.btn-shine:hover > .shine {
+  transform: translateX(120%) skewX(-20deg);
+}
+
 html { scroll-behavior: smooth; }

@@ -29,18 +29,21 @@ export function BotonComprar({
 
   const estilo =
     variant === "outline"
-      ? "border border-paper/40 text-paper hover:bg-paper hover:text-dark"
-      : "bg-btn text-paper hover:bg-[#6d2900] shadow-[0_12px_38px_-12px_rgba(109,41,0,0.5)]";
+      ? "border border-paper/40 text-paper hover:border-paper hover:shadow-[0_16px_40px_-12px_rgba(245,238,223,0.35)]"
+      : "bg-btn text-paper hover:bg-[#6d2900] shadow-[0_10px_30px_-10px_rgba(109,41,0,0.5)] hover:shadow-[0_22px_55px_-12px_rgba(109,41,0,0.75)]";
 
   return (
     <a
       href={TIENDA_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-base font-medium transition-all hover:scale-[1.03] active:scale-95 ${estilo} ${className}`}
+      className={`btn-shine group inline-flex items-center justify-center gap-2 rounded-full px-9 py-4 text-base font-medium transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 active:translate-y-0 active:scale-95 ${estilo} ${className}`}
     >
-      {label}
-      <span className="transition-transform group-hover:translate-x-1">→</span>
+      <span className="shine" aria-hidden />
+      <span className="relative">{label}</span>
+      <span className="relative transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1.5">
+        →
+      </span>
     </a>
   );
 }

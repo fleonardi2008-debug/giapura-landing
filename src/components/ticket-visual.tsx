@@ -2,8 +2,9 @@
 // crema para que resalte y se sienta "físico", como un pasaporte o entrada.
 export function TicketVisual({ numero = "000001" }: { numero?: string }) {
   return (
-    <div className="relative mx-auto w-full max-w-md">
-      <div className="relative flex overflow-hidden rounded-2xl bg-[#3d1b06] text-[#f6f2e7] shadow-[0_30px_70px_-20px_rgba(109,41,0,0.6)] ring-1 ring-[#f5cf89]/20">
+    <div className="group relative mx-auto w-full max-w-md [perspective:1200px]">
+      <div className="btn-shine relative flex overflow-hidden rounded-2xl bg-[#3d1b06] text-[#f6f2e7] shadow-[0_30px_70px_-20px_rgba(109,41,0,0.6)] ring-1 ring-[#f5cf89]/20 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-2 group-hover:shadow-[0_45px_90px_-24px_rgba(109,41,0,0.75)] group-hover:[transform:rotateX(6deg)]">
+        <span className="shine" aria-hidden />
         {/* textura sutil */}
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.06]"

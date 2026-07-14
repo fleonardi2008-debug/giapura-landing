@@ -30,7 +30,7 @@ export function Testimonios() {
         <div className="mt-14 columns-1 gap-4 sm:columns-2 lg:columns-3">
           {MENSAJES.map((m, i) => (
             <Reveal key={i} delay={0.05 + (i % 3) * 0.06} className="mb-4 break-inside-avoid">
-              <div className="rounded-2xl rounded-tl-sm border border-line bg-bg px-5 py-4 text-cream shadow-sm">
+              <div className="rounded-2xl rounded-tl-sm border border-line bg-bg px-5 py-4 text-cream shadow-sm transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:border-gold/30 hover:shadow-[0_18px_40px_-16px_rgba(109,41,0,0.3)]">
                 <p className="leading-relaxed">{m}</p>
                 <p className="mt-2 text-[11px] text-muted">vía Instagram · 12:0{i}</p>
               </div>

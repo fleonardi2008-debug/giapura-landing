@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/reveal";
+import { Aurora } from "@/components/aurora";
 
 const CARDS = [
   {
@@ -20,8 +21,9 @@ const CARDS = [
 
 export function PorQue() {
   return (
-    <section className="bg-dark px-6 py-32 text-paper">
-      <div className="mx-auto max-w-5xl">
+    <section className="relative overflow-hidden bg-dark px-6 py-32 text-paper">
+      <Aurora tone="dark" />
+      <div className="relative z-10 mx-auto max-w-5xl">
         <Reveal>
           <span className="text-xs uppercase tracking-[0.35em] text-gold-bright">
             ¿Por qué Giapura?
@@ -36,7 +38,7 @@ export function PorQue() {
         <div className="mt-20 grid gap-6 sm:grid-cols-3">
           {CARDS.map((c, i) => (
             <Reveal key={c.titulo} delay={0.1 + i * 0.1}>
-              <div className="h-full rounded-3xl border border-paper/15 bg-paper/[0.04] p-8">
+              <div className="h-full rounded-3xl border border-paper/15 bg-paper/[0.04] p-8 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:border-gold-bright/40 hover:bg-paper/[0.07]">
                 <div className="text-3xl">{c.emoji}</div>
                 <h3 className="font-display mt-6 text-2xl font-semibold text-paper">
                   {c.titulo}

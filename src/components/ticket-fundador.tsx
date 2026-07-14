@@ -55,7 +55,9 @@ export function TicketFundador() {
           {["Accesos anticipados.", "Beneficios exclusivos.", "Y cosas que voy a ir revelando con el tiempo."].map(
             (t, i) => (
               <Reveal key={t} delay={0.2 + i * 0.08}>
-                <p className="rounded-full border border-line bg-bg-2 px-5 py-3 text-cream">{t}</p>
+                <p className="rounded-full border border-line bg-bg-2 px-5 py-3 text-cream transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:border-gold/40 hover:bg-bg-3">
+                  {t}
+                </p>
               </Reveal>
             )
           )}
