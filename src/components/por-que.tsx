@@ -20,28 +20,28 @@ const CARDS = [
 
 export function PorQue() {
   return (
-    <section className="border-y border-line bg-bg-2 px-6 py-28">
-      <div className="mx-auto max-w-4xl text-center">
+    <section className="bg-dark px-6 py-32 text-paper">
+      <div className="mx-auto max-w-5xl">
         <Reveal>
-          <h2 className="font-display text-4xl font-semibold sm:text-5xl">
-            ¿Por qué <span className="text-gradient-gold">Giapura</span>?
+          <span className="text-xs uppercase tracking-[0.35em] text-gold-bright">
+            ¿Por qué Giapura?
+          </span>
+        </Reveal>
+        <Reveal delay={0.06}>
+          <h2 className="font-display mt-6 max-w-3xl text-5xl font-semibold leading-[0.98] sm:text-7xl">
+            Porque hacer las cosas bien lleva más tiempo.
           </h2>
         </Reveal>
-        <Reveal delay={0.08}>
-          <p className="mx-auto mt-4 max-w-lg text-lg text-cream-dim">
-            Porque hacer las cosas bien lleva más tiempo.
-          </p>
-        </Reveal>
 
-        <div className="mt-16 grid gap-6 sm:grid-cols-3">
+        <div className="mt-20 grid gap-6 sm:grid-cols-3">
           {CARDS.map((c, i) => (
-            <Reveal key={c.titulo} delay={0.12 + i * 0.1}>
-              <div className="h-full rounded-3xl border border-line bg-bg p-8 text-left">
+            <Reveal key={c.titulo} delay={0.1 + i * 0.1}>
+              <div className="h-full rounded-3xl border border-paper/15 bg-paper/[0.04] p-8">
                 <div className="text-3xl">{c.emoji}</div>
-                <h3 className="font-display mt-5 text-xl font-semibold text-cream">
+                <h3 className="font-display mt-6 text-2xl font-semibold text-paper">
                   {c.titulo}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-cream-dim">{c.texto}</p>
+                <p className="mt-3 leading-relaxed text-paper/60">{c.texto}</p>
               </div>
             </Reveal>
           ))}

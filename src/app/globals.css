@@ -1,53 +1,60 @@
+@import url("https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&f[]=general-sans@400,500,600&display=swap");
 @import "tailwindcss";
 
 :root {
   /* Superficies */
-  --bg: #f6f2e7;        /* Crema — fondo principal */
-  --bg-2: #ffffff;      /* Blanco puro — secciones alternadas */
-  --bg-3: #efe8d8;      /* Crema cálido — tarjetas / inputs */
-  /* Texto (marrones) */
-  --cream: #3d1f0a;     /* Texto principal — marrón muy oscuro */
-  --cream-dim: #6b4a2e; /* Texto secundario */
-  --muted: #8a755c;     /* Texto terciario / labels */
+  --bg: #ece1cc;          /* Beige tostado — fondo principal */
+  --bg-2: #f5eedf;        /* Crema claro — secciones alternadas */
+  --bg-3: #e4d6bb;        /* Beige más profundo — tarjetas */
+  --dark: #240d08;        /* Marrón casi negro — secciones oscuras */
+  /* Texto */
+  --cream: #240d08;       /* Texto principal (sobre claro) */
+  --cream-dim: #5a3a28;   /* Texto secundario */
+  --muted: #8a6f52;       /* Texto terciario / labels */
+  --paper: #f5eedf;       /* Texto sobre secciones oscuras */
   /* Acentos de marca */
   --gold: #6d2900;        /* Marrón Cacao */
   --gold-bright: #f5cf89; /* Beige Natural (maní) */
-  --marron-suave: #753b18;
-  --line: rgba(109, 41, 0, 0.16);
+  --btn: #80613b;         /* Marrón botón (pill) */
+  --line: rgba(36, 13, 8, 0.14);
 }
 
 @theme inline {
   --color-bg: var(--bg);
   --color-bg-2: var(--bg-2);
   --color-bg-3: var(--bg-3);
+  --color-dark: var(--dark);
   --color-cream: var(--cream);
   --color-cream-dim: var(--cream-dim);
   --color-muted: var(--muted);
+  --color-paper: var(--paper);
   --color-gold: var(--gold);
   --color-gold-bright: var(--gold-bright);
+  --color-btn: var(--btn);
   --color-line: var(--line);
-  --font-display: var(--font-fraunces);
-  --font-sans: var(--font-geist);
+  --font-display: "Clash Display", ui-sans-serif, sans-serif;
+  --font-sans: "General Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
   background: var(--bg);
   color: var(--cream);
-  font-family: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  font-family: "General Sans", ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
   background: var(--gold);
-  color: var(--bg);
+  color: var(--paper);
 }
 
 .font-display {
-  font-family: var(--font-fraunces), Georgia, serif;
+  font-family: "Clash Display", ui-sans-serif, sans-serif;
+  letter-spacing: -0.02em;
 }
 
 .text-gradient-gold {
-  background: linear-gradient(120deg, #a4551d, var(--gold) 55%, var(--marron-suave));
+  background: linear-gradient(120deg, #a4551d, var(--gold) 55%, #753b18);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
