@@ -3,11 +3,11 @@ import { AR_MAIN, AR_TDF } from "@/lib/argentina-path";
 
 export function Cobertura() {
   return (
-    <section className="border-y border-line bg-bg-2 px-6 py-28">
+    <section id="envios" className="border-y border-line bg-bg-2 px-6 py-28">
       <div className="mx-auto grid max-w-5xl items-center gap-12 md:grid-cols-2">
         <div>
           <Reveal>
-            <span className="text-xs uppercase tracking-widest text-gold">
+            <span className="text-sm font-semibold uppercase tracking-[0.18em] text-gold">
               ¿Hasta dónde llegamos?
             </span>
           </Reveal>

@@ -21,7 +21,7 @@ function Avatar({ i }: { i: string }) {
 
 export function Testimonios() {
   return (
-    <section className="bg-bg-2 px-6 py-28">
+    <section id="opiniones" className="bg-bg-2 px-6 py-28">
       <div className="mx-auto max-w-4xl">
         <Reveal>
           <h2 className="font-display text-center text-5xl font-semibold leading-[0.98] sm:text-6xl">

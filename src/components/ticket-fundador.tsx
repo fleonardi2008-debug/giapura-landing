@@ -7,7 +7,9 @@ export function TicketFundador() {
     <section id="fundador" className="px-6 py-32">
       <div className="mx-auto max-w-2xl text-center">
         <Reveal>
-          <span className="text-xs uppercase tracking-[0.4em] text-gold">Para los primeros</span>
+          <span className="text-sm font-semibold uppercase tracking-[0.18em] text-gold">
+            Para los primeros
+          </span>
         </Reveal>
 
         <Reveal delay={0.05}>

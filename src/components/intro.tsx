@@ -25,10 +25,12 @@ export function Intro() {
   const jarRotate = useTransform(scrollYProgress, [0, 1], [0, -8]);
   const glow = useTransform(scrollYProgress, [0, 1], [0.9, 1.5]);
 
-  const introOpacity = useTransform(scrollYProgress, [0, 0.32], [1, 0]);
-  const tituloOpacity = useTransform(scrollYProgress, [0.45, 0.8], [0, 1]);
-  const tituloY = useTransform(scrollYProgress, [0.45, 0.8], [40, 0]);
-  const tituloScale = useTransform(scrollYProgress, [0.45, 0.8], [0.92, 1]);
+  const introOpacity = useTransform(scrollYProgress, [0, 0.28], [1, 0]);
+  // El título aparece temprano (0.3→0.45) y se queda visible hasta el final del
+  // tramo pegajoso, así no desaparece apenas termina de aparecer.
+  const tituloOpacity = useTransform(scrollYProgress, [0.3, 0.45], [0, 1]);
+  const tituloY = useTransform(scrollYProgress, [0.3, 0.45], [40, 0]);
+  const tituloScale = useTransform(scrollYProgress, [0.3, 0.45], [0.92, 1]);
 
   return (
     <section ref={ref} className="relative h-[240vh]">

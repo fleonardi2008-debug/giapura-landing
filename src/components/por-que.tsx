@@ -21,11 +21,11 @@ const CARDS = [
 
 export function PorQue() {
   return (
-    <section className="relative overflow-hidden bg-dark px-6 py-32 text-paper">
+    <section id="por-que" className="relative overflow-hidden bg-dark px-6 py-32 text-paper">
       <Aurora tone="dark" />
       <div className="relative z-10 mx-auto max-w-5xl">
         <Reveal>
-          <span className="text-xs uppercase tracking-[0.35em] text-gold-bright">
+          <span className="text-sm font-semibold uppercase tracking-[0.18em] text-gold-bright">
             ¿Por qué Giapura?
           </span>
         </Reveal>

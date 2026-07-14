@@ -10,7 +10,9 @@ export function Gracias() {
 
       <div className="relative z-10">
       <Reveal>
-        <span className="text-xs uppercase tracking-[0.4em] text-gold-bright">Gracias</span>
+        <span className="text-sm font-semibold uppercase tracking-[0.18em] text-gold-bright">
+          Gracias
+        </span>
       </Reveal>
 
       <div className="mx-auto mt-10 max-w-xl space-y-6 text-lg leading-relaxed text-paper/70">
