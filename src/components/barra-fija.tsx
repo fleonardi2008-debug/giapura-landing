@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "motion/react";
-import { Wordmark } from "@/components/wordmark";
+import { Logo } from "@/components/logo";
 import { Countdown } from "@/components/countdown";
 import { BotonComprar } from "@/components/boton-comprar";
 
@@ -38,7 +38,7 @@ export function BarraFija() {
       >
         <div className="mx-auto flex max-w-6xl items-center gap-4 px-5 py-3">
           <a href="#top" className="shrink-0">
-            <Wordmark className="text-xl" />
+            <Logo className="h-6 w-auto" />
           </a>
 
           <nav className="hidden flex-1 items-center justify-center gap-7 md:flex">

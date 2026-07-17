@@ -1,17 +1,17 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "motion/react";
-import { ProductoVisual } from "@/components/producto-visual";
-import { Wordmark } from "@/components/wordmark";
+import { Logo } from "@/components/logo";
 import { CountdownGrande } from "@/components/countdown";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 /**
- * Intro cinematográfica: el frasco entra con drama y acompaña el scroll (estilo
- * Unreal Water). Temporizador arriba, logo pisando la base del frasco, subtítulo
- * debajo. Al bajar, el frasco crece/rota y se revela el título de la primera tanda.
+ * Intro cinematográfica: el frasco real es el protagonista y acompaña el scroll
+ * (estilo Unreal Water). Temporizador arriba, logo debajo del frasco, subtítulo.
+ * Al bajar, el frasco crece/rota y se revela el título de la primera tanda.
  */
 export function Intro() {
   const ref = useRef<HTMLDivElement>(null);
@@ -21,13 +21,11 @@ export function Intro() {
   });
 
   const jarY = useTransform(scrollYProgress, [0, 1], [0, 140]);
-  const jarScale = useTransform(scrollYProgress, [0, 1], [1, 1.35]);
-  const jarRotate = useTransform(scrollYProgress, [0, 1], [0, -8]);
+  const jarScale = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
+  const jarRotate = useTransform(scrollYProgress, [0, 1], [0, -6]);
   const glow = useTransform(scrollYProgress, [0, 1], [0.9, 1.5]);
 
   const introOpacity = useTransform(scrollYProgress, [0, 0.28], [1, 0]);
-  // El título aparece temprano (0.3→0.45) y se queda visible hasta el final del
-  // tramo pegajoso, así no desaparece apenas termina de aparecer.
   const tituloOpacity = useTransform(scrollYProgress, [0.3, 0.45], [0, 1]);
   const tituloY = useTransform(scrollYProgress, [0.3, 0.45], [40, 0]);
   const tituloScale = useTransform(scrollYProgress, [0.3, 0.45], [0.92, 1]);
@@ -52,27 +50,34 @@ export function Intro() {
           <CountdownGrande />
         </motion.div>
 
-        {/* Frasco + logo + subtítulo */}
+        {/* Frasco real + logo + subtítulo */}
         <motion.div style={{ opacity: introOpacity }} className="flex flex-col items-center">
           <motion.div style={{ y: jarY, scale: jarScale, rotate: jarRotate }} className="relative z-0">
             <motion.div
-              initial={{ opacity: 0, scale: 0.6, y: 40 }}
+              initial={{ opacity: 0, scale: 0.7, y: 40 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ delay: 0.35, duration: 1.3, ease: EASE }}
-              className="animate-float-slow"
+              transition={{ delay: 0.3, duration: 1.3, ease: EASE }}
+              className="overflow-hidden rounded-[2rem] shadow-[0_50px_90px_-30px_rgba(36,13,8,0.55)] ring-1 ring-line"
             >
-              <ProductoVisual className="h-72 w-auto drop-shadow-[0_50px_80px_rgba(109,41,0,0.25)] sm:h-[26rem]" />
+              <Image
+                src="/frasco-cacao.jpg"
+                alt="Frasco de pasta de maní Giapura con cacao"
+                width={2400}
+                height={3000}
+                priority
+                className="h-[52vh] w-auto object-cover sm:h-[58vh]"
+              />
             </motion.div>
           </motion.div>
 
-          {/* Logo pisando la base del frasco */}
+          {/* Logo real */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 1, ease: EASE }}
-            className="relative z-10 -mt-12 sm:-mt-16"
+            className="mt-8"
           >
-            <Wordmark className="text-6xl sm:text-8xl" />
+            <Logo priority className="h-9 w-auto sm:h-11" />
           </motion.div>
 
           {/* Subtítulo */}
@@ -80,7 +85,7 @@ export function Intro() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.3, duration: 1 }}
-            className="mt-8 max-w-md text-base text-cream-dim sm:text-lg"
+            className="mt-6 max-w-md text-base text-cream-dim sm:text-lg"
           >
             Después de 6 meses sin poder hacer envíos, llegó el día.
           </motion.p>
@@ -89,7 +94,7 @@ export function Intro() {
         {/* Título revelado al scrollear */}
         <motion.h1
           style={{ opacity: tituloOpacity, y: tituloY, scale: tituloScale }}
-          className="font-display absolute bottom-24 max-w-4xl text-4xl font-semibold leading-[0.98] tracking-tight sm:text-7xl"
+          className="font-display absolute bottom-20 max-w-4xl text-4xl font-semibold leading-[0.98] tracking-tight sm:text-7xl"
         >
           La primer tanda <span className="text-gradient-gold">Nacional</span> de Giapura
         </motion.h1>
