@@ -1,122 +1,104 @@
 "use client";
 
-import { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import { Logo } from "@/components/logo";
 import { CountdownGrande } from "@/components/countdown";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 /**
- * Intro cinematográfica: el frasco real es el protagonista y acompaña el scroll
- * (estilo Unreal Water). Temporizador arriba, logo debajo del frasco, subtítulo.
- * Al bajar, el frasco crece/rota y se revela el título de la primera tanda.
+ * Hero sobre fondo blanco: el frasco en primer plano y el wordmark "giapura"
+ * delante de él, con anchos parecidos (el logo apenas más ancho). Detrás del
+ * logo el frasco se desvanece en blanco, para que la etiqueta no se cuele entre
+ * las letras. Sin animaciones de scroll: sólo la entrada suave al cargar.
  */
 export function Intro() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-
-  const jarY = useTransform(scrollYProgress, [0, 1], [0, 140]);
-  const jarScale = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
-  const jarRotate = useTransform(scrollYProgress, [0, 1], [0, -6]);
-  const glow = useTransform(scrollYProgress, [0, 1], [0.9, 1.5]);
-
-  const introOpacity = useTransform(scrollYProgress, [0, 0.28], [1, 0]);
-  const tituloOpacity = useTransform(scrollYProgress, [0.3, 0.45], [0, 1]);
-  const tituloY = useTransform(scrollYProgress, [0.3, 0.45], [40, 0]);
-  const tituloScale = useTransform(scrollYProgress, [0.3, 0.45], [0.92, 1]);
-
   return (
-    <section ref={ref} className="relative h-[240vh]">
-      <div className="sticky top-0 flex h-screen flex-col items-center justify-center overflow-hidden px-6 text-center">
-        {/* Spotlight que respira detrás del frasco */}
-        <motion.div
-          style={{ scale: glow }}
-          className="pointer-events-none absolute left-1/2 top-1/2 h-[620px] w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/15 blur-[140px]"
-        />
+    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-white px-6 text-center">
+      {/* Halo cálido detrás del frasco (sutil sobre blanco) */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold-bright/20 blur-[110px]" />
 
-        {/* Temporizador arriba */}
-        <motion.div
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.9, ease: EASE }}
-          style={{ opacity: introOpacity }}
-          className="absolute top-14"
-        >
-          <CountdownGrande />
-        </motion.div>
+      {/* Temporizador arriba */}
+      <motion.div
+        initial={{ opacity: 0, y: -12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.9, ease: EASE }}
+        className="absolute top-12 z-20"
+      >
+        <CountdownGrande />
+      </motion.div>
 
-        {/* Frasco real + logo + subtítulo */}
-        <motion.div style={{ opacity: introOpacity }} className="flex flex-col items-center">
-          <motion.div style={{ y: jarY, scale: jarScale, rotate: jarRotate }} className="relative z-0">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.7, y: 40 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 1.3, ease: EASE }}
-              className="overflow-hidden rounded-[2rem] shadow-[0_50px_90px_-30px_rgba(36,13,8,0.55)] ring-1 ring-line"
-            >
-              <Image
-                src="/frasco-cacao.jpg"
-                alt="Frasco de pasta de maní Giapura con cacao"
-                width={2400}
-                height={3000}
-                priority
-                className="h-[52vh] w-auto object-cover sm:h-[58vh]"
-              />
-            </motion.div>
-          </motion.div>
-
-          {/* Logo real */}
+      {/* Composición: frasco en primer plano + logo delante */}
+      <div className="flex flex-col items-center">
+        <div className="relative flex items-center justify-center">
+          {/* Frasco (capa de atrás) */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 1, ease: EASE }}
-            className="mt-8"
+            initial={{ opacity: 0, scale: 0.9, y: 22 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ delay: 0.25, duration: 1.3, ease: EASE }}
+            className="relative z-0 shrink-0"
           >
-            <Logo priority className="h-9 w-auto sm:h-11" />
+            <Image
+              src="/frasco-recortado.png"
+              alt="Frasco de pasta de maní Giapura Natural"
+              width={528}
+              height={939}
+              priority
+              className="h-[66vh] w-auto object-contain drop-shadow-[0_36px_46px_rgba(60,30,10,0.26)]"
+            />
           </motion.div>
 
-          {/* Subtítulo */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.3, duration: 1 }}
-            className="mt-6 max-w-md text-base text-cream-dim sm:text-lg"
+          {/* Velo blanco: desvanece el frasco justo detrás del logo */}
+          <div
+            className="pointer-events-none absolute left-1/2 top-1/2 z-[5] h-[210px] w-[480px] -translate-x-1/2 -translate-y-1/2"
+            style={{
+              background:
+                "radial-gradient(ellipse at center, rgba(255,255,255,0.97) 34%, rgba(255,255,255,0.85) 52%, rgba(255,255,255,0) 74%)",
+            }}
+          />
+
+          {/* Wordmark "giapura" delante, apenas más ancho que el frasco */}
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7, duration: 1, ease: EASE }}
+            className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2"
           >
-            Después de 6 meses sin poder hacer envíos, llegó el día.
-          </motion.p>
-        </motion.div>
+            <Logo priority className="h-auto w-[62vw] max-w-[320px]" />
+          </motion.div>
+        </div>
 
-        {/* Título revelado al scrollear */}
-        <motion.h1
-          style={{ opacity: tituloOpacity, y: tituloY, scale: tituloScale }}
-          className="font-display absolute bottom-20 max-w-4xl text-4xl font-semibold leading-[0.98] tracking-tight sm:text-7xl"
-        >
-          La primer tanda <span className="text-gradient-gold">Nacional</span> de Giapura
-        </motion.h1>
-
-        {/* Hint de scroll */}
-        <motion.div
+        {/* Subtítulo */}
+        <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.9, duration: 1 }}
-          style={{ opacity: introOpacity }}
-          className="absolute bottom-8 flex flex-col items-center gap-1 text-muted"
+          transition={{ delay: 1.2, duration: 1 }}
+          className="mt-8 max-w-md text-base text-cream-dim sm:text-lg"
         >
-          <span className="text-[10px] uppercase tracking-[0.3em]">Deslizá</span>
-          <motion.span
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 1.6 }}
-            className="text-lg"
-          >
-            ↓
-          </motion.span>
-        </motion.div>
+          Después de 6 meses sin poder hacer envíos, llegó el día.
+        </motion.p>
       </div>
+
+      {/* Hint de scroll */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.9, duration: 1 }}
+        className="absolute bottom-8 flex flex-col items-center gap-1 text-muted"
+      >
+        <span className="text-[10px] uppercase tracking-[0.3em]">Deslizá</span>
+        <motion.span
+          animate={{ y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 1.6 }}
+          className="text-lg"
+        >
+          ↓
+        </motion.span>
+      </motion.div>
+
+      {/* Empalme suave hacia el beige de la sección siguiente */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-bg" />
     </section>
   );
 }
