@@ -1,6 +1,7 @@
 import { Reveal } from "@/components/reveal";
 import { TicketVisual } from "@/components/ticket-visual";
 import { BotonComprar } from "@/components/boton-comprar";
+import { BarraTickets } from "@/components/barra-tickets";
 
 export function TicketFundador() {
   return (
@@ -20,19 +21,22 @@ export function TicketFundador() {
 
         <Reveal delay={0.1}>
           <p className="mx-auto mt-10 max-w-xl text-lg leading-relaxed text-cream-dim">
-            Si comprás durante las primeras 24 horas, vas a recibir un{" "}
+            Solo los <span className="font-medium text-cream">primeros 1000</span> que
+            compren en las primeras 24 horas se llevan un{" "}
             <span className="font-medium text-cream">Ticket de Fundador</span>.
           </p>
         </Reveal>
         <Reveal delay={0.15}>
-          <p className="mx-auto mt-6 text-lg text-cream-dim">Cada ticket está numerado.</p>
-        </Reveal>
-        <Reveal delay={0.2}>
-          <p className="mx-auto mt-2 text-lg text-cream">
-            Y ese número va a ser tuyo para siempre.
+          <p className="mx-auto mt-6 text-lg text-cream-dim">
+            Cada ticket está numerado. Y ese número va a ser tuyo para siempre.
           </p>
         </Reveal>
       </div>
+
+      {/* Barra de progreso en vivo de los tickets */}
+      <Reveal delay={0.1} className="mx-auto mt-14 max-w-md px-2">
+        <BarraTickets />
+      </Reveal>
 
       <Reveal delay={0.1} className="mx-auto mt-16 max-w-md">
         <TicketVisual />
@@ -74,11 +78,9 @@ export function TicketFundador() {
         </Reveal>
         <Reveal delay={0.08}>
           <p className="mx-auto mt-10 max-w-xl text-lg leading-relaxed text-cream-dim">
-            Los Tickets de Fundador solo existen durante las primeras 24 horas.
+            Son solo 1000, y únicamente durante las primeras 24 horas. Cuando se reclama
+            el último —o se cumplen las 24hs, lo que pase primero—...
           </p>
-        </Reveal>
-        <Reveal delay={0.14}>
-          <p className="mx-auto mt-8 text-xl text-muted">Después...</p>
         </Reveal>
         <Reveal delay={0.2}>
           <p className="font-display mx-auto mt-2 text-2xl font-semibold text-cream sm:text-3xl">

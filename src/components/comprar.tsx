@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Reveal } from "@/components/reveal";
 import { BotonComprar } from "@/components/boton-comprar";
 import { Countdown } from "@/components/countdown";
+import { BarraTickets } from "@/components/barra-tickets";
 
 export function Comprar() {
   return (
@@ -37,6 +38,10 @@ export function Comprar() {
           <BotonComprar />
           <Countdown />
         </div>
+      </Reveal>
+
+      <Reveal delay={0.3} className="mt-12">
+        <BarraTickets />
       </Reveal>
     </section>
   );

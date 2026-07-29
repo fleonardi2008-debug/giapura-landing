@@ -8,6 +8,12 @@ export const CONTADOR_URL =
   process.env.NEXT_PUBLIC_CONTADOR_URL ??
   "https://giapura-erp.vercel.app/api/public/contador-preventa";
 
+// Monto en pesos a partir del cual el envío es gratis (para el cartel de arriba).
+// Cambialo acá, o seteá NEXT_PUBLIC_ENVIO_GRATIS_DESDE en Vercel.
+export const ENVIO_GRATIS_DESDE = Number(
+  process.env.NEXT_PUBLIC_ENVIO_GRATIS_DESDE ?? "30000"
+);
+
 export type ContadorData = {
   vendidos: number;
   objetivo: number;

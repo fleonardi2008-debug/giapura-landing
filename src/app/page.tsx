@@ -1,3 +1,4 @@
+import { BarraEnvio } from "@/components/barra-envio";
 import { BarraFija } from "@/components/barra-fija";
 import { Intro } from "@/components/intro";
 import { Comprar } from "@/components/comprar";
@@ -11,6 +12,7 @@ import { Gracias } from "@/components/gracias";
 export default function Home() {
   return (
     <main>
+      <BarraEnvio />
       <BarraFija />
       <Intro />
       <Comprar />

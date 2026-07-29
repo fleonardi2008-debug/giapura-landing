@@ -28,13 +28,13 @@ export function BarraFija() {
       {/* Progreso de lectura */}
       <motion.div
         style={{ scaleX: scrollYProgress }}
-        className="fixed inset-x-0 top-0 z-[70] h-[3px] origin-left bg-gradient-to-r from-gold to-gold-bright"
+        className="fixed inset-x-0 top-9 z-[70] h-[3px] origin-left bg-gradient-to-r from-gold to-gold-bright"
       />
 
       {/* Barra sólida */}
       <motion.div
         style={{ opacity, y, pointerEvents: pointer }}
-        className="fixed inset-x-0 top-0 z-[65] border-b border-line bg-bg shadow-[0_6px_24px_-12px_rgba(36,13,8,0.25)]"
+        className="fixed inset-x-0 top-9 z-[65] border-b border-line bg-bg shadow-[0_6px_24px_-12px_rgba(36,13,8,0.25)]"
       >
         <div className="mx-auto flex max-w-6xl items-center gap-4 px-5 py-3">
           <a href="#top" className="shrink-0">

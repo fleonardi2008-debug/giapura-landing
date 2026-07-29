@@ -14,7 +14,26 @@ export function BotonComprar({
   variant?: "solid" | "outline";
 }) {
   const { data } = useContador();
-  const cerrada = data !== null && !data.abierta;
+  const inicioMs = data?.inicioAt ? new Date(data.inicioAt).getTime() : null;
+  const proximamente = inicioMs !== null && Date.now() < inicioMs;
+  const cerrada = data !== null && !data.abierta && !proximamente;
+
+  if (proximamente) {
+    const fecha = data!.inicioAt
+      ? new Date(data!.inicioAt).toLocaleDateString("es-AR", {
+          day: "numeric",
+          month: "long",
+        })
+      : "";
+    return (
+      <button
+        disabled
+        className={`inline-flex cursor-not-allowed items-center justify-center rounded-full border border-line px-8 py-4 text-base font-medium opacity-60 ${className}`}
+      >
+        Disponible el {fecha}
+      </button>
+    );
+  }
 
   if (cerrada) {
     return (
