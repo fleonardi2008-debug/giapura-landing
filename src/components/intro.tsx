@@ -92,7 +92,7 @@ export function Intro() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.9, duration: 1 }}
-        className="absolute bottom-8 flex flex-col items-center gap-1 text-muted"
+        className="absolute bottom-5 flex flex-col items-center gap-1 text-muted"
       >
         <span className="text-[10px] uppercase tracking-[0.3em]">Deslizá</span>
         <motion.span
