@@ -42,7 +42,7 @@ export function Cobertura() {
             <div className="pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/15 blur-[90px]" />
             <svg
               viewBox="0 0 1024 1024"
-              className="relative h-[26rem] w-auto"
+              className="relative h-auto w-56 sm:h-[26rem] sm:w-auto"
               xmlns="http://www.w3.org/2000/svg"
               aria-label="Mapa de Argentina"
             >
