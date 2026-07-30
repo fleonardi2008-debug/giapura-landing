@@ -4,6 +4,7 @@ import { Intro } from "@/components/intro";
 import { Comprar } from "@/components/comprar";
 import { PorQue } from "@/components/por-que";
 import { TicketFundador } from "@/components/ticket-fundador";
+import { SoloLanzamiento } from "@/components/solo-lanzamiento";
 import { Testimonios } from "@/components/testimonios";
 import { Faq } from "@/components/faq";
 import { Cobertura } from "@/components/cobertura";
@@ -17,7 +18,9 @@ export default function Home() {
       <Intro />
       <Comprar />
       <PorQue />
-      <TicketFundador />
+      <SoloLanzamiento>
+        <TicketFundador />
+      </SoloLanzamiento>
       <Testimonios />
       <Faq />
       <Cobertura />

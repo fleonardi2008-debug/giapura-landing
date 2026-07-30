@@ -1,5 +1,6 @@
 import { Reveal } from "@/components/reveal";
 import { AR_MAIN, AR_TDF } from "@/lib/argentina-path";
+import { BotonComprar } from "@/components/boton-comprar";
 
 export function Cobertura() {
   return (
@@ -66,6 +67,10 @@ export function Cobertura() {
           </div>
         </Reveal>
       </div>
+
+      <Reveal delay={0.1} className="mx-auto mt-16 flex max-w-5xl justify-center">
+        <BotonComprar label="Pedilo a tu casa" />
+      </Reveal>
     </section>
   );
 }

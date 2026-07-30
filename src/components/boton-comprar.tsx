@@ -15,8 +15,9 @@ export function BotonComprar({
 }) {
   const { data } = useContador();
   const inicioMs = data?.inicioAt ? new Date(data.inicioAt).getTime() : null;
+  // Solo se deshabilita ANTES de arrancar. Una vez pasada la ventana, la web queda
+  // en modo recompra y el botón sigue activo (lleva a la tienda).
   const proximamente = inicioMs !== null && Date.now() < inicioMs;
-  const cerrada = data !== null && !data.abierta && !proximamente;
 
   if (proximamente) {
     const fecha = data!.inicioAt
@@ -31,17 +32,6 @@ export function BotonComprar({
         className={`inline-flex cursor-not-allowed items-center justify-center rounded-full border border-line px-8 py-4 text-base font-medium opacity-60 ${className}`}
       >
         Disponible el {fecha}
-      </button>
-    );
-  }
-
-  if (cerrada) {
-    return (
-      <button
-        disabled
-        className={`inline-flex cursor-not-allowed items-center justify-center rounded-full border border-line px-8 py-4 text-base font-medium opacity-50 ${className}`}
-      >
-        Preventa cerrada
       </button>
     );
   }

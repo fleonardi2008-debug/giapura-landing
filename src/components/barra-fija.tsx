@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { Logo } from "@/components/logo";
 import { Countdown } from "@/components/countdown";
 import { BotonComprar } from "@/components/boton-comprar";
+import { useFase } from "@/lib/useFase";
 
 const LINKS = [
   { href: "#por-que", label: "¿Por qué?" },
@@ -18,6 +19,9 @@ const LINKS = [
  */
 export function BarraFija() {
   const { scrollYProgress } = useScroll();
+  const fase = useFase();
+  // En modo recompra la sección "Fundador" ya no existe → sacamos ese link.
+  const links = fase === "recurrente" ? LINKS.filter((l) => l.href !== "#fundador") : LINKS;
 
   const opacity = useTransform(scrollYProgress, [0.1, 0.16], [0, 1]);
   const y = useTransform(scrollYProgress, [0.1, 0.16], [-24, 0]);
@@ -42,7 +46,7 @@ export function BarraFija() {
           </a>
 
           <nav className="hidden flex-1 items-center justify-center gap-7 md:flex">
-            {LINKS.map((l) => (
+            {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}

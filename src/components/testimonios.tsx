@@ -63,7 +63,7 @@ export function Testimonios() {
 
         <Reveal delay={0.2}>
           <div className="mt-16 flex justify-center">
-            <BotonComprar label="Quiero el mío" />
+            <BotonComprar label="Yo también quiero" />
           </div>
         </Reveal>
       </div>

@@ -9,7 +9,7 @@ type Tiempo =
   | { estado: "pendiente" }
   | { estado: "proximamente"; dias: number; horas: number; min: number; seg: number }
   | { estado: "activo"; horas: number; min: number; seg: number }
-  | { estado: "cerrado" };
+  | { estado: "recurrente" }; // ventana pasada → modo recompra (no mostramos "cerró")
 
 function useTiempo(): Tiempo {
   const { data } = useContador();
@@ -38,8 +38,8 @@ function useTiempo(): Tiempo {
     };
   }
 
-  // Después del fin: cerrada.
-  if (now > finMs) return { estado: "cerrado" };
+  // Después del fin: modo recompra (recurrente).
+  if (now > finMs) return { estado: "recurrente" };
 
   // Dentro de la ventana: cuenta regresiva al cierre (horas totales, 0–24).
   const ms = finMs - now;
@@ -54,10 +54,9 @@ function useTiempo(): Tiempo {
 /** Versión chica en línea, para debajo de los botones. */
 export function Countdown() {
   const t = useTiempo();
+  if (t.estado === "recurrente") return null; // modo recompra: sin countdown
   if (t.estado === "pendiente")
     return <p className="text-sm text-muted">Muy pronto.</p>;
-  if (t.estado === "cerrado")
-    return <p className="text-sm font-medium text-cream-dim">La preventa cerró.</p>;
   if (t.estado === "proximamente")
     return (
       <p className="text-sm text-cream-dim">
@@ -104,16 +103,11 @@ function Cajas({ items }: { items: { v: number; l: string }[] }) {
 export function CountdownGrande() {
   const t = useTiempo();
 
+  if (t.estado === "recurrente") return null; // modo recompra: sin countdown
+
   if (t.estado === "pendiente") {
     return (
       <span className="text-xs uppercase tracking-[0.4em] text-muted">Muy pronto</span>
-    );
-  }
-  if (t.estado === "cerrado") {
-    return (
-      <span className="text-xs uppercase tracking-[0.4em] text-muted">
-        La preventa cerró
-      </span>
     );
   }
 

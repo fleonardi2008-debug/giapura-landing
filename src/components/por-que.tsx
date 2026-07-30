@@ -1,5 +1,6 @@
 import { Reveal } from "@/components/reveal";
 import { Aurora } from "@/components/aurora";
+import { BotonComprar } from "@/components/boton-comprar";
 
 const CARDS = [
   {
@@ -48,6 +49,10 @@ export function PorQue() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={0.2} className="mt-16 flex justify-center">
+          <BotonComprar variant="outline" label="Lo quiero probar" />
+        </Reveal>
       </div>
     </section>
   );

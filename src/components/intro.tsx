@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import { Logo } from "@/components/logo";
 import { CountdownGrande } from "@/components/countdown";
+import { useFase } from "@/lib/useFase";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -14,6 +15,12 @@ const EASE = [0.16, 1, 0.3, 1] as const;
  * las letras. Sin animaciones de scroll: sólo la entrada suave al cargar.
  */
 export function Intro() {
+  const fase = useFase();
+  const subtitulo =
+    fase === "recurrente"
+      ? "Pasta de maní de verdad. Pedí el tuyo y te llega a casa."
+      : "Después de 6 meses sin poder hacer envíos, llegó el día.";
+
   return (
     <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-white px-6 text-center">
       {/* Halo cálido detrás del frasco (sutil sobre blanco) */}
@@ -76,7 +83,7 @@ export function Intro() {
           transition={{ delay: 1.2, duration: 1 }}
           className="mt-8 max-w-md text-base text-cream-dim sm:text-lg"
         >
-          Después de 6 meses sin poder hacer envíos, llegó el día.
+          {subtitulo}
         </motion.p>
       </div>
 

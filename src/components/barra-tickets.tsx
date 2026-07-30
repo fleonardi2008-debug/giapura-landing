@@ -23,11 +23,14 @@ export function BarraTickets({ className = "" }: { className?: string }) {
   const { vendidos, objetivo, inicioAt, finAt, abierta } = data;
   const now = Date.now();
   const inicioMs = inicioAt ? new Date(inicioAt).getTime() : null;
+  const finMs = finAt ? new Date(finAt).getTime() : null;
+
+  // Modo recompra (ventana pasada): la barra de Fundadores ya no aplica → se oculta.
+  if (finMs !== null && now > finMs) return null;
 
   const pendiente = finAt === null; // fechas no cargadas
   const proximamente = !pendiente && inicioMs !== null && now < inicioMs;
   const agotado = !pendiente && !proximamente && vendidos >= objetivo;
-  const cerrada = !pendiente && !proximamente && !agotado && !abierta;
   const vivo = !pendiente && !proximamente && !agotado && abierta;
 
   const restantes = Math.max(0, objetivo - vendidos);
@@ -84,8 +87,6 @@ export function BarraTickets({ className = "" }: { className?: string }) {
           <span className="text-cream-dim">
             Arranca el <span className="font-medium text-cream">{fechaInicio} hs</span>.
           </span>
-        ) : cerrada ? (
-          <span className="text-cream-dim">La preventa cerró.</span>
         ) : agotado ? (
           <span className="font-medium text-cream-dim">
             Ya son {objetivo.toLocaleString("es-AR")} fundadores. Se completó el cupo.
