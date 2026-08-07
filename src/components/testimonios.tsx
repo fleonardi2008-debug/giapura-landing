@@ -50,7 +50,34 @@ export function Testimonios() {
           </p>
         </Reveal>
 
-        <div className="mt-14 columns-1 gap-4 sm:columns-2 lg:columns-3 xl:columns-4">
+        {/* Mobile: carrusel horizontal con scroll-snap (el usuario desliza) */}
+        <Reveal delay={0.1} className="sm:hidden">
+          <p className="mt-2 text-center text-xs uppercase tracking-[0.18em] text-muted">
+            Deslizá para ver más →
+          </p>
+        </Reveal>
+        <Reveal delay={0.14} className="mt-8 sm:hidden">
+          <div className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {CAPTURAS.map((c) => (
+              <div
+                key={c.file}
+                className="shrink-0 snap-center overflow-hidden rounded-2xl border border-line bg-bg shadow-sm"
+              >
+                <Image
+                  src={`/testimonios/${c.file}`}
+                  alt="Captura de WhatsApp de un cliente de Giapura"
+                  width={c.w}
+                  height={c.h}
+                  sizes="380px"
+                  className="h-[340px] w-auto object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </Reveal>
+
+        {/* Desktop/tablet: grilla masonry */}
+        <div className="mt-14 hidden sm:columns-2 sm:block lg:columns-3 xl:columns-4">
           {CAPTURAS.map((c, idx) => (
             <Reveal key={c.file} delay={0.03 + (idx % 4) * 0.05} className="mb-4 break-inside-avoid">
               <div className="overflow-hidden rounded-2xl border border-line bg-bg shadow-sm transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[0_18px_40px_-16px_rgba(109,41,0,0.3)]">
@@ -59,7 +86,7 @@ export function Testimonios() {
                   alt="Captura de WhatsApp de un cliente de Giapura"
                   width={c.w}
                   height={c.h}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  sizes="(max-width: 1024px) 50vw, 25vw"
                   className="h-auto w-full"
                 />
               </div>
