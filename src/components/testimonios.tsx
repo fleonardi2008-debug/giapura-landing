@@ -61,15 +61,15 @@ export function Testimonios() {
             {CAPTURAS.map((c) => (
               <div
                 key={c.file}
-                className="shrink-0 snap-center overflow-hidden rounded-2xl border border-line bg-bg shadow-sm"
+                className="flex h-[420px] w-[84vw] shrink-0 snap-center items-center justify-center overflow-hidden rounded-2xl border border-line bg-bg shadow-sm"
               >
                 <Image
                   src={`/testimonios/${c.file}`}
                   alt="Captura de WhatsApp de un cliente de Giapura"
                   width={c.w}
                   height={c.h}
-                  sizes="380px"
-                  className="h-[340px] w-auto object-contain"
+                  sizes="84vw"
+                  className="h-full w-full object-contain"
                 />
               </div>
             ))}
