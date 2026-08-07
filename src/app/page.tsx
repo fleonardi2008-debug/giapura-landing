@@ -2,7 +2,6 @@ import { BarraEnvio } from "@/components/barra-envio";
 import { BarraFija } from "@/components/barra-fija";
 import { Intro } from "@/components/intro";
 import { Comprar } from "@/components/comprar";
-import { PorQue } from "@/components/por-que";
 import { TicketFundador } from "@/components/ticket-fundador";
 import { SoloLanzamiento } from "@/components/solo-lanzamiento";
 import { Testimonios } from "@/components/testimonios";
@@ -17,7 +16,6 @@ export default function Home() {
       <BarraFija />
       <Intro />
       <Comprar />
-      <PorQue />
       <SoloLanzamiento>
         <TicketFundador />
       </SoloLanzamiento>

@@ -107,7 +107,9 @@ export function CountdownGrande() {
 
   if (t.estado === "pendiente") {
     return (
-      <span className="text-xs uppercase tracking-[0.4em] text-muted">Muy pronto</span>
+      <span className="font-display text-xs uppercase tracking-[0.4em] text-muted">
+        Muy pronto
+      </span>
     );
   }
 

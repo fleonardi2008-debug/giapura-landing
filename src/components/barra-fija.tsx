@@ -7,15 +7,16 @@ import { BotonComprar } from "@/components/boton-comprar";
 import { useFase } from "@/lib/useFase";
 
 const LINKS = [
-  { href: "#por-que", label: "¿Por qué?" },
   { href: "#fundador", label: "Fundador" },
   { href: "#opiniones", label: "Opiniones" },
   { href: "#envios", label: "Envíos" },
 ];
 
 /**
- * Barra fija superior: aparece al pasar el hero. Logo, navegación por secciones,
- * countdown y un botón "Comprar" siempre a mano. Arriba, barra de progreso.
+ * Barra fija superior: transparente al cargar (para no competir con el logo
+ * del hero, que ya tiene su propio "Comprar"), aparece recién al scrollear
+ * un poco. Logo, navegación por secciones, countdown y el botón. Arriba,
+ * barra de progreso de lectura.
  */
 export function BarraFija() {
   const { scrollYProgress } = useScroll();
@@ -23,9 +24,9 @@ export function BarraFija() {
   // En modo recompra la sección "Fundador" ya no existe → sacamos ese link.
   const links = fase === "recurrente" ? LINKS.filter((l) => l.href !== "#fundador") : LINKS;
 
-  const opacity = useTransform(scrollYProgress, [0.1, 0.16], [0, 1]);
-  const y = useTransform(scrollYProgress, [0.1, 0.16], [-24, 0]);
-  const pointer = useTransform(scrollYProgress, (v) => (v > 0.12 ? "auto" : "none"));
+  const opacity = useTransform(scrollYProgress, [0.06, 0.12], [0, 1]);
+  const y = useTransform(scrollYProgress, [0.06, 0.12], [-24, 0]);
+  const pointer = useTransform(scrollYProgress, (v) => (v > 0.08 ? "auto" : "none"));
 
   return (
     <>
@@ -38,11 +39,11 @@ export function BarraFija() {
       {/* Barra sólida */}
       <motion.div
         style={{ opacity, y, pointerEvents: pointer }}
-        className="fixed inset-x-0 top-9 z-[65] border-b border-line bg-bg shadow-[0_6px_24px_-12px_rgba(36,13,8,0.25)]"
+        className="fixed inset-x-0 top-9 z-[65] border-b border-line bg-gold-bright shadow-[0_6px_24px_-12px_rgba(36,13,8,0.25)]"
       >
         <div className="mx-auto flex max-w-6xl items-center gap-4 px-5 py-3">
           <a href="#top" className="shrink-0">
-            <Logo className="h-6 w-auto" />
+            <Logo className="h-10 w-auto" />
           </a>
 
           <nav className="hidden flex-1 items-center justify-center gap-7 md:flex">

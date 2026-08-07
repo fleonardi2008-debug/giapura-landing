@@ -37,7 +37,7 @@ export function TicketVisual({ numero = "000001" }: { numero?: string }) {
 
         {/* perforación + talón */}
         <div className="relative flex w-24 flex-col items-center justify-center border-l border-dashed border-[#f5cf89]/30 bg-[#2e1404] p-4 text-center">
-          <div className="absolute -left-2 top-1/2 h-4 w-4 -translate-y-1/2 rounded-full bg-bg" />
+          <div className="absolute -left-2 top-1/2 h-4 w-4 -translate-y-1/2 rounded-full bg-dark" />
           <span
             className="font-display text-xs font-semibold uppercase tracking-widest text-[#f5cf89]"
             style={{ writingMode: "vertical-rl" }}

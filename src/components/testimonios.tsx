@@ -1,28 +1,43 @@
+import Image from "next/image";
 import { Reveal } from "@/components/reveal";
 import { BotonComprar } from "@/components/boton-comprar";
 
-// Placeholder tipo captura de DM — reemplazar por las capturas reales.
-const MENSAJES = [
-  { u: "caro.fit", i: "CF", t: "che, es LA mejor pasta de maní que probé. lejos 🥜", h: "12:04", react: "❤️" },
-  { u: "martin.rosario", i: "MR", t: "no tiene nada que ver con las del super, se nota la diferencia", h: "09:21" },
-  { u: "lu.entrena", i: "LU", t: "la terminé en dos días jajaja necesito más ya", h: "20:47", react: "🔥" },
-  { u: "fede.mdq", i: "FM", t: "por fin algo real, sin azúcar ni cosas raras 🙌", h: "14:10" },
-  { u: "juli.cocina", i: "JC", t: "la comparé con las marcas grandes y les pasa el trapo", h: "11:33", react: "❤️" },
-  { u: "nacho.gym", i: "NG", t: "¿cuándo llega al interior? la quiero sí o sí", h: "18:02" },
+// Capturas reales de WhatsApp de clientes. Dimensiones intrínsecas (ya
+// corregidas por orientación EXIF) para que next/image evite layout shift.
+const CAPTURAS = [
+  { file: "t01.jpg", w: 1170, h: 555 },
+  { file: "t02.jpg", w: 1170, h: 558 },
+  { file: "t03.jpg", w: 1170, h: 403 },
+  { file: "t04.jpg", w: 1170, h: 1445 },
+  { file: "t05.jpg", w: 1170, h: 481 },
+  { file: "t06.jpg", w: 1170, h: 1987 },
+  { file: "t07.jpg", w: 1170, h: 1193 },
+  { file: "t08.jpg", w: 1170, h: 2003 },
+  { file: "t09.jpg", w: 1170, h: 1991 },
+  { file: "t10.jpg", w: 1170, h: 1660 },
+  { file: "t11.jpg", w: 1170, h: 374 },
+  { file: "t12.jpg", w: 1170, h: 648 },
+  { file: "t13.jpg", w: 866, h: 345 },
+  { file: "t14.jpg", w: 1170, h: 1015 },
+  { file: "t15.png", w: 1170, h: 2025 },
+  { file: "t16.jpg", w: 1170, h: 1586 },
+  { file: "t17.jpg", w: 1170, h: 1669 },
+  { file: "t18.jpg", w: 1170, h: 822 },
+  { file: "t19.jpg", w: 1170, h: 441 },
+  { file: "t20.jpg", w: 969, h: 647 },
+  { file: "t21.jpg", w: 1170, h: 1533 },
+  { file: "t22.jpg", w: 1170, h: 330 },
+  { file: "t23.jpg", w: 839, h: 571 },
+  { file: "t24.jpg", w: 1170, h: 390 },
+  { file: "t25.jpg", w: 1170, h: 942 },
+  { file: "t26.jpg", w: 1170, h: 1120 },
+  { file: "t27.jpg", w: 1170, h: 828 },
 ];
-
-function Avatar({ i }: { i: string }) {
-  return (
-    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-gold to-[#8a3d10] text-[11px] font-semibold text-paper">
-      {i}
-    </div>
-  );
-}
 
 export function Testimonios() {
   return (
     <section id="opiniones" className="bg-bg-2 px-6 py-28">
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto max-w-6xl">
         <Reveal>
           <h2 className="font-display text-center text-5xl font-semibold leading-[0.98] sm:text-6xl">
             No hace falta que me <span className="text-gradient-gold">creas a mí</span>.
@@ -30,32 +45,23 @@ export function Testimonios() {
         </Reveal>
         <Reveal delay={0.08}>
           <p className="mx-auto mt-5 max-w-xl text-center text-cream-dim">
-            Durante estos meses me llegaron cientos de mensajes. Esto es lo que dice la
-            gente que ya la probó.
+            Durante estos meses me llegaron cientos de mensajes. Estas son capturas reales
+            de clientes que ya la probaron.
           </p>
         </Reveal>
 
-        <div className="mt-14 columns-1 gap-4 sm:columns-2 lg:columns-3">
-          {MENSAJES.map((m, idx) => (
-            <Reveal key={idx} delay={0.05 + (idx % 3) * 0.06} className="mb-4 break-inside-avoid">
-              <div className="rounded-2xl border border-line bg-bg p-4 shadow-sm transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[0_18px_40px_-16px_rgba(109,41,0,0.3)]">
-                {/* header estilo DM */}
-                <div className="mb-3 flex items-center gap-2">
-                  <Avatar i={m.i} />
-                  <div className="leading-tight">
-                    <p className="text-sm font-semibold text-cream">@{m.u}</p>
-                    <p className="text-[11px] text-muted">Instagram · {m.h}</p>
-                  </div>
-                </div>
-                {/* burbuja entrante */}
-                <div className="relative w-fit max-w-full rounded-2xl rounded-tl-md bg-bg-3 px-4 py-2.5 text-[15px] leading-relaxed text-cream">
-                  {m.t}
-                  {m.react && (
-                    <span className="absolute -bottom-2 -right-1 rounded-full border border-line bg-bg px-1.5 py-0.5 text-xs shadow-sm">
-                      {m.react}
-                    </span>
-                  )}
-                </div>
+        <div className="mt-14 columns-1 gap-4 sm:columns-2 lg:columns-3 xl:columns-4">
+          {CAPTURAS.map((c, idx) => (
+            <Reveal key={c.file} delay={0.03 + (idx % 4) * 0.05} className="mb-4 break-inside-avoid">
+              <div className="overflow-hidden rounded-2xl border border-line bg-bg shadow-sm transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[0_18px_40px_-16px_rgba(109,41,0,0.3)]">
+                <Image
+                  src={`/testimonios/${c.file}`}
+                  alt="Captura de WhatsApp de un cliente de Giapura"
+                  width={c.w}
+                  height={c.h}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="h-auto w-full"
+                />
               </div>
             </Reveal>
           ))}

@@ -1,4 +1,3 @@
-@import url("https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&f[]=general-sans@400,500,600&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -32,14 +31,18 @@
   --color-gold-bright: var(--gold-bright);
   --color-btn: var(--btn);
   --color-line: var(--line);
-  --font-display: "Clash Display", ui-sans-serif, sans-serif;
-  --font-sans: "General Sans", ui-sans-serif, system-ui, sans-serif;
+  /* Texto principal (títulos grandes, subtítulo, "Muy pronto"): Playfair Display. */
+  --font-display: var(--font-playfair), ui-serif, serif;
+  /* Texto secundario (cuerpo/párrafos): Aileron Bold, auto-alojada (CC0). */
+  --font-sans: var(--font-aileron), ui-sans-serif, system-ui, sans-serif;
+  /* Notas aside (hints, textos de ayuda chicos): Caveat, libre, aire Segoe Script. */
+  --font-aside: var(--font-caveat), "Segoe Script", cursive;
 }
 
 body {
   background: var(--bg);
   color: var(--cream);
-  font-family: "General Sans", ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-aileron), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -49,8 +52,11 @@ body {
 }
 
 .font-display {
-  font-family: "Clash Display", ui-sans-serif, sans-serif;
-  letter-spacing: -0.02em;
+  font-family: var(--font-playfair), ui-serif, serif;
+}
+
+.font-aside {
+  font-family: var(--font-caveat), "Segoe Script", cursive;
 }
 
 .text-gradient-gold {

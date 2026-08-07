@@ -1,14 +1,14 @@
 import { Reveal } from "@/components/reveal";
 import { TicketVisual } from "@/components/ticket-visual";
 import { BotonComprar } from "@/components/boton-comprar";
-import { BarraTickets } from "@/components/barra-tickets";
+import { CountdownGrande } from "@/components/countdown";
 
 export function TicketFundador() {
   return (
-    <section id="fundador" className="px-6 py-32">
+    <section id="fundador" className="bg-dark px-6 py-32 text-paper">
       <div className="mx-auto max-w-2xl text-center">
         <Reveal>
-          <span className="text-sm font-semibold uppercase tracking-[0.18em] text-gold">
+          <span className="text-sm font-semibold uppercase tracking-[0.18em] text-gold-bright">
             Para los primeros
           </span>
         </Reveal>
@@ -20,22 +20,21 @@ export function TicketFundador() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <p className="mx-auto mt-10 max-w-xl text-lg leading-relaxed text-cream-dim">
-            Solo los <span className="font-medium text-cream">primeros 1000</span> que
-            compren en las primeras 24 horas se llevan un{" "}
-            <span className="font-medium text-cream">Ticket de Fundador</span>.
+          <p className="mx-auto mt-10 max-w-xl text-lg leading-relaxed text-paper/70">
+            Todos los que compren durante las primeras 24 horas se llevan un{" "}
+            <span className="font-medium text-paper">Ticket de Fundador</span>.
           </p>
         </Reveal>
         <Reveal delay={0.15}>
-          <p className="mx-auto mt-6 text-lg text-cream-dim">
+          <p className="mx-auto mt-6 text-lg text-paper/70">
             Cada ticket está numerado. Y ese número va a ser tuyo para siempre.
           </p>
         </Reveal>
       </div>
 
-      {/* Barra de progreso en vivo de los tickets */}
-      <Reveal delay={0.1} className="mx-auto mt-14 max-w-md px-2">
-        <BarraTickets />
+      {/* Cuenta regresiva: la condición ahora es solo el tiempo, no una cantidad */}
+      <Reveal delay={0.1} className="mt-14 flex justify-center [&_*]:!text-paper">
+        <CountdownGrande />
       </Reveal>
 
       <Reveal delay={0.1} className="mx-auto mt-16 max-w-md">
@@ -49,19 +48,19 @@ export function TicketFundador() {
           </h3>
         </Reveal>
         <Reveal delay={0.08}>
-          <p className="mx-auto mt-10 max-w-xl text-lg leading-relaxed text-cream-dim">
+          <p className="mx-auto mt-10 max-w-xl text-lg leading-relaxed text-paper/70">
             Significa haber confiado cuando todo esto recién empezaba.
           </p>
         </Reveal>
         <Reveal delay={0.14}>
-          <p className="mx-auto mt-6 text-lg text-cream">Y esa confianza va a tener recompensas.</p>
+          <p className="mx-auto mt-6 text-lg text-paper">Y esa confianza va a tener recompensas.</p>
         </Reveal>
 
         <div className="mx-auto mt-10 flex max-w-xs flex-col gap-3">
           {["Accesos anticipados.", "Beneficios exclusivos.", "Y cosas que voy a ir revelando con el tiempo."].map(
             (t, i) => (
               <Reveal key={t} delay={0.2 + i * 0.08}>
-                <p className="rounded-full border border-line bg-bg-2 px-5 py-3 text-cream transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:border-gold/40 hover:bg-bg-3">
+                <p className="rounded-full border border-paper/15 bg-paper/[0.04] px-5 py-3 text-paper transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:border-gold-bright/40 hover:bg-paper/[0.07]">
                   {t}
                 </p>
               </Reveal>
@@ -77,13 +76,15 @@ export function TicketFundador() {
           </h3>
         </Reveal>
         <Reveal delay={0.08}>
-          <p className="mx-auto mt-10 max-w-xl text-lg leading-relaxed text-cream-dim">
-            Son solo 1000, y únicamente durante las primeras 24 horas. Cuando se reclama
-            el último —o se cumplen las 24hs, lo que pase primero—...
+          <p className="mx-auto mt-10 max-w-xl text-lg leading-relaxed text-paper/70">
+            Los Tickets de Fundador solo existen durante las primeras 24 horas.
           </p>
         </Reveal>
+        <Reveal delay={0.14}>
+          <p className="mx-auto mt-8 text-xl text-paper/50">Después...</p>
+        </Reveal>
         <Reveal delay={0.2}>
-          <p className="font-display mx-auto mt-2 text-2xl font-semibold text-cream sm:text-3xl">
+          <p className="font-display mx-auto mt-2 text-2xl font-semibold text-paper sm:text-3xl">
             No va a haber forma de conseguir uno.
           </p>
         </Reveal>

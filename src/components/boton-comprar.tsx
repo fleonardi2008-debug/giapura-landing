@@ -10,8 +10,9 @@ export function BotonComprar({
 }: {
   className?: string;
   label?: string;
-  /** solid: pill marrón sobre fondo claro · outline: pill con borde para fondos oscuros */
-  variant?: "solid" | "outline";
+  /** solid: pill marrón sobre fondo claro · outline: pill con borde para fondos oscuros ·
+   * crema: colores de marca (#F5CF89 fondo / #753b18 texto), sin borde (para fotos oscuras) */
+  variant?: "solid" | "outline" | "crema";
 }) {
   const { data } = useContador();
   const inicioMs = data?.inicioAt ? new Date(data.inicioAt).getTime() : null;
@@ -26,10 +27,14 @@ export function BotonComprar({
           month: "long",
         })
       : "";
+    const disabledEstilo =
+      variant === "outline" || variant === "crema"
+        ? "border-paper/40 text-paper"
+        : "border-line text-cream";
     return (
       <button
         disabled
-        className={`inline-flex cursor-not-allowed items-center justify-center rounded-full border border-line px-8 py-4 text-base font-medium opacity-60 ${className}`}
+        className={`inline-flex cursor-not-allowed items-center justify-center rounded-full border px-8 py-4 text-base font-medium opacity-60 ${disabledEstilo} ${className}`}
       >
         Disponible el {fecha}
       </button>
@@ -39,7 +44,9 @@ export function BotonComprar({
   const estilo =
     variant === "outline"
       ? "border border-paper/40 text-paper hover:border-paper hover:shadow-[0_16px_40px_-12px_rgba(245,238,223,0.35)]"
-      : "bg-btn text-paper hover:bg-[#6d2900] shadow-[0_10px_30px_-10px_rgba(109,41,0,0.5)] hover:shadow-[0_22px_55px_-12px_rgba(109,41,0,0.75)]";
+      : variant === "crema"
+        ? "bg-[#F5CF89] text-[#753b18] hover:bg-[#f7d89e] shadow-[0_10px_30px_-10px_rgba(36,13,8,0.4)] hover:shadow-[0_22px_55px_-12px_rgba(36,13,8,0.55)]"
+        : "bg-btn text-paper hover:bg-[#6d2900] shadow-[0_10px_30px_-10px_rgba(109,41,0,0.5)] hover:shadow-[0_22px_55px_-12px_rgba(109,41,0,0.75)]";
 
   return (
     <a
