@@ -43,7 +43,7 @@ export function Intro() {
 
       {/* Countdown, arriba (la navbar está transparente al principio, así que
           solo tiene que despejar la barra de envío gratis). */}
-      <div className="relative z-10 flex justify-center pt-20 pb-2">
+      <div className="relative z-10 flex justify-center pt-14 pb-2 sm:pt-20">
         <motion.div
           initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -56,7 +56,7 @@ export function Intro() {
 
       {/* Columna central: logo + textos + CTA, en un solo bloque compacto,
           todo sobre el mismo eje vertical */}
-      <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 py-4">
+      <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 pb-16 pt-4 sm:py-4">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
@@ -74,7 +74,7 @@ export function Intro() {
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.32, duration: 0.8, ease: EASE }}
-            className="font-display mt-1 max-w-md text-base font-light text-white/70 sm:mt-1.5 sm:text-lg"
+            className="font-display mt-1 max-w-xs text-base font-light text-white/80 sm:mt-1.5 sm:max-w-md sm:text-lg"
           >
             {frase.chica}
           </motion.p>
@@ -84,7 +84,7 @@ export function Intro() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.45, duration: 1, ease: EASE }}
-          className="font-display -mt-1 max-w-2xl text-3xl font-semibold leading-[1.15] text-paper drop-shadow-[0_4px_18px_rgba(0,0,0,0.45)] sm:-mt-0.5 sm:text-6xl"
+          className="font-display -mt-1 max-w-[220px] text-3xl font-semibold leading-[1.15] text-paper drop-shadow-[0_4px_18px_rgba(0,0,0,0.45)] sm:-mt-0.5 sm:max-w-2xl sm:text-6xl"
         >
           {frase.grande}
         </motion.h1>
