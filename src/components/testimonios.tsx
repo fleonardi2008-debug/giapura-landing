@@ -61,7 +61,7 @@ export function Testimonios() {
             {CAPTURAS.map((c) => (
               <div
                 key={c.file}
-                className="flex h-[420px] w-[84vw] shrink-0 snap-center items-center justify-center overflow-hidden rounded-2xl border border-line bg-bg shadow-sm"
+                className="flex h-[420px] w-[84vw] shrink-0 snap-center items-center justify-center"
               >
                 <Image
                   src={`/testimonios/${c.file}`}
@@ -69,7 +69,7 @@ export function Testimonios() {
                   width={c.w}
                   height={c.h}
                   sizes="84vw"
-                  className="h-full w-full object-contain"
+                  className="h-full w-full rounded-xl object-contain"
                 />
               </div>
             ))}
