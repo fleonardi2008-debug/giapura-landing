@@ -1,7 +1,8 @@
-// URL a la que lleva "Comprar" (tienda / producto de Tienda Nube).
-// Por ahora la tienda demo; se cambia por la real vía env en el deploy.
+// URL a la que lleva "Comprar": directo a la página del producto en Tienda Nube
+// (no al inicio de la tienda). Se puede pisar por env en el deploy.
 export const TIENDA_URL =
-  process.env.NEXT_PUBLIC_TIENDA_URL ?? "https://giapura3.mitiendanube.com";
+  process.env.NEXT_PUBLIC_TIENDA_URL ??
+  "https://giapura3.mitiendanube.com/productos/pack-1-y-1-l3oxi/";
 
 // Endpoint público del ERP que devuelve el contador de la preventa en vivo.
 export const CONTADOR_URL =

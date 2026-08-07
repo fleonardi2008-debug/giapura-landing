@@ -51,8 +51,6 @@ export function BotonComprar({
   return (
     <a
       href={TIENDA_URL}
-      target="_blank"
-      rel="noopener noreferrer"
       className={`btn-shine group inline-flex items-center justify-center gap-2 rounded-full px-9 py-4 text-base font-medium transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 active:translate-y-0 active:scale-95 ${estilo} ${className}`}
     >
       <span className="shine" aria-hidden />
