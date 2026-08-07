@@ -69,7 +69,7 @@ export function Testimonios() {
                   width={c.w}
                   height={c.h}
                   sizes="84vw"
-                  className="h-full w-full rounded-3xl object-contain"
+                  className="h-auto max-h-full w-auto max-w-full rounded-3xl"
                 />
               </div>
             ))}
