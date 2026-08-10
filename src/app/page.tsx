@@ -9,7 +9,10 @@ import { Faq } from "@/components/faq";
 import { Cobertura } from "@/components/cobertura";
 import { Gracias } from "@/components/gracias";
 import { BotonWhatsapp } from "@/components/boton-whatsapp";
-import { Newsletter } from "@/components/newsletter";
+// Newsletter: pendiente hasta tener el costo real del producto y poder
+// ofrecer algo mejor que "enterate primero" (el copy actual no aplica a
+// gente que nunca compró). Componente listo en @/components/newsletter,
+// solo falta reincorporarlo acá cuando esté definido el incentivo.
 
 export default function Home() {
   return (
@@ -24,7 +27,6 @@ export default function Home() {
       <Testimonios />
       <Faq />
       <Cobertura />
-      <Newsletter />
       <Gracias />
       <BotonWhatsapp />
     </main>
