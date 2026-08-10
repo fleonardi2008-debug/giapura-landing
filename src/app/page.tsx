@@ -8,6 +8,8 @@ import { Testimonios } from "@/components/testimonios";
 import { Faq } from "@/components/faq";
 import { Cobertura } from "@/components/cobertura";
 import { Gracias } from "@/components/gracias";
+import { BotonWhatsapp } from "@/components/boton-whatsapp";
+import { Newsletter } from "@/components/newsletter";
 
 export default function Home() {
   return (
@@ -22,7 +24,9 @@ export default function Home() {
       <Testimonios />
       <Faq />
       <Cobertura />
+      <Newsletter />
       <Gracias />
+      <BotonWhatsapp />
     </main>
   );
 }

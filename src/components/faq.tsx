@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/reveal";
+import { PLAZO_ENTREGA } from "@/lib/config";
 
 // Placeholder editable: ajustar respuestas con datos reales (envío, plazos, etc.).
 const PREGUNTAS = [
@@ -8,7 +9,7 @@ const PREGUNTAS = [
   },
   {
     q: "¿Cuándo me llega el pedido?",
-    a: "Como es preventa, coordinamos el envío una vez cerrada la ventana y producida la tanda. Te vamos avisando el estado por email.",
+    a: `Es una preventa: producimos cada frasco (y cada caja) recién después de que cierra la ventana de venta. Por eso el plazo de entrega es ${PLAZO_ENTREGA} desde tu compra. Te vamos a ir avisando el estado por email.`,
   },
   {
     q: "¿Hacen envíos a todo el país?",

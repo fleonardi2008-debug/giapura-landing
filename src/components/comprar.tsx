@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Reveal } from "@/components/reveal";
 import { BotonComprar } from "@/components/boton-comprar";
 import { Countdown } from "@/components/countdown";
+import { PLAZO_ENTREGA } from "@/lib/config";
 
 const CARACTERISTICAS = [
   { emoji: "🥜", texto: "100% maní seleccionado. Calidad premium." },
@@ -50,9 +51,10 @@ export function Comprar() {
           </ul>
 
           <Reveal delay={0.45}>
-            <div className="mt-10 flex flex-col items-center gap-4 lg:items-start">
+            <div className="mt-10 flex flex-col items-center gap-3 lg:items-start">
               <BotonComprar />
               <Countdown />
+              <p className="text-xs text-muted">Es preventa: tu pedido llega en {PLAZO_ENTREGA}.</p>
             </div>
           </Reveal>
         </div>
