@@ -16,8 +16,24 @@ const PREGUNTAS = [
     a: "Sí. Por primera vez, enviamos a toda la Argentina. El costo y el plazo dependen de tu localidad, y los ves al finalizar la compra.",
   },
   {
+    q: "¿Puedo hacer seguimiento de mi pedido?",
+    a: "Sí. Apenas despachamos tu pedido, te mandamos el número de seguimiento por mail para que lo puedas rastrear.",
+  },
+  {
+    q: "¿Qué pasa si mi pedido llega roto o dañado?",
+    a: "Es muy poco común, pero si llega a pasar escribinos apenas lo recibís (con una foto) por Instagram (@giapura) y lo resolvemos sin costo: reenvío o reembolso, como prefieras.",
+  },
+  {
     q: "¿Qué es el Ticket de Fundador?",
     a: "Es el beneficio exclusivo para quienes compran en estas 24 horas. Después del cierre, deja de existir.",
+  },
+  {
+    q: "¿Por qué se separó el aceite en el frasco? ¿Está vencido?",
+    a: "No, es normal: nuestra pasta de maní no tiene estabilizantes ni conservantes agregados, así que un poco de aceite natural puede separarse arriba. Mezclá con una cuchara antes de usar y vuelve a su textura cremosa.",
+  },
+  {
+    q: "¿Cuánto dura el producto?",
+    a: "El vencimiento está impreso en la etiqueta de cada frasco. Se conserva en un lugar fresco y seco, sin necesidad de heladera.",
   },
   {
     q: "¿Cómo pago?",
