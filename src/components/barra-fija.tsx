@@ -7,6 +7,7 @@ import { BotonComprar } from "@/components/boton-comprar";
 import { useFase } from "@/lib/useFase";
 
 const LINKS = [
+  { href: "#faq", label: "Preguntas frecuentes" },
   { href: "#fundador", label: "Fundador" },
   { href: "#opiniones", label: "Opiniones" },
   { href: "#envios", label: "Envíos" },
