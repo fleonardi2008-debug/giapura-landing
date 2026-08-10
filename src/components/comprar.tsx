@@ -49,10 +49,17 @@ function DiagramaFrasco() {
         {CALLOUTS.map((c, i) => {
           const x1 = c.side === "left" ? 23 : 77;
           const x2 = c.side === "left" ? 31 : 69;
+          const y = c.y;
+          const dir = c.side === "left" ? 1 : -1; // sentido del trazo, hacia el frasco
+          const amp = 2.6; // curva suave, no recta
+          const cp1x = x1 + (x2 - x1) * 0.35;
+          const cp2x = x1 + (x2 - x1) * 0.65;
+          const path = `M ${x1} ${y} C ${cp1x} ${y - amp}, ${cp2x} ${y + amp}, ${x2} ${y}`;
+          const ax = x2 - dir * 2.2;
           return (
-            <g key={i}>
-              <line x1={x1} y1={c.y} x2={x2} y2={c.y} stroke={GOLD} strokeWidth="0.25" />
-              <circle cx={x2} cy={c.y} r="0.6" fill={GOLD} />
+            <g key={i} stroke={GOLD} strokeWidth="0.28" strokeLinecap="round" fill="none">
+              <path d={path} />
+              <path d={`M ${ax} ${y - 1.3} L ${x2} ${y} L ${ax} ${y + 1.3}`} />
             </g>
           );
         })}
