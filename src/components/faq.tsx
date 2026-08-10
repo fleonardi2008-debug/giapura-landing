@@ -33,7 +33,7 @@ const PREGUNTAS = [
   },
   {
     q: "¿Cuánto dura el producto?",
-    a: "El vencimiento está impreso en la etiqueta de cada frasco. Se conserva en un lugar fresco y seco, sin necesidad de heladera.",
+    a: "12 meses desde su elaboración. La fecha exacta de vencimiento está impresa en la etiqueta de cada frasco. Se conserva en un lugar fresco y seco, sin necesidad de heladera.",
   },
   {
     q: "¿Cómo pago?",
