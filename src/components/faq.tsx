@@ -1,5 +1,18 @@
 import { Reveal } from "@/components/reveal";
-import { PLAZO_ENTREGA } from "@/lib/config";
+import { PLAZO_ENTREGA, WHATSAPP_NUMERO } from "@/lib/config";
+
+const linkWhatsapp = WHATSAPP_NUMERO ? (
+  <a
+    href={`https://wa.me/${WHATSAPP_NUMERO}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-gold underline underline-offset-2 hover:text-cream"
+  >
+    Whatsapp
+  </a>
+) : (
+  "Whatsapp"
+);
 
 // Placeholder editable: ajustar respuestas con datos reales (envío, plazos, etc.).
 const PREGUNTAS = [
@@ -21,7 +34,13 @@ const PREGUNTAS = [
   },
   {
     q: "¿Qué pasa si mi pedido llega roto o dañado?",
-    a: "Es muy poco común, pero si llega a pasar escribinos apenas lo recibís (con una foto) por Instagram (@giapura) y lo resolvemos sin costo: reenvío o reembolso, como prefieras.",
+    a: (
+      <>
+        Es muy poco común, pero si llega a pasar escribinos apenas lo recibís (con una foto) por
+        Instagram (@giapura.mani) o por {linkWhatsapp} y lo resolvemos sin costo: reenvío o
+        reembolso, como prefieras.
+      </>
+    ),
   },
   {
     q: "¿Qué es el Ticket de Fundador?",
