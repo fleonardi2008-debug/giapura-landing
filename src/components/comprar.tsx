@@ -14,7 +14,7 @@ const CARACTERISTICAS = [
 
 export function Comprar() {
   return (
-    <section id="comprar" className="relative px-6 py-12">
+    <section id="comprar" className="relative px-6 pb-12 pt-6 sm:py-12">
       <div className="mx-auto grid max-w-5xl items-center gap-14 lg:grid-cols-2">
         <Reveal className="flex justify-center">
           <Image

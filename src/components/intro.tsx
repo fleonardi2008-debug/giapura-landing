@@ -53,7 +53,7 @@ export function Intro() {
 
       {/* Columna central: logo + textos + CTA, en un solo bloque compacto,
           todo sobre el mismo eje vertical */}
-      <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 pb-16 pt-4 sm:py-4">
+      <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 pb-8 pt-4 sm:py-4">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
