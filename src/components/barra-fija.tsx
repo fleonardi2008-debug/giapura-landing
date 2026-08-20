@@ -20,14 +20,16 @@ const LINKS = [
  * barra de progreso de lectura.
  */
 export function BarraFija() {
-  const { scrollYProgress } = useScroll();
+  const { scrollY, scrollYProgress } = useScroll();
   const fase = useFase();
   // En modo recompra la sección "Fundador" ya no existe → sacamos ese link.
   const links = fase === "recurrente" ? LINKS.filter((l) => l.href !== "#fundador") : LINKS;
 
-  const opacity = useTransform(scrollYProgress, [0.06, 0.12], [0, 1]);
-  const y = useTransform(scrollYProgress, [0.06, 0.12], [-24, 0]);
-  const pointer = useTransform(scrollYProgress, (v) => (v > 0.08 ? "auto" : "none"));
+  // Umbral en píxeles (no % de la página): así queda sólida enseguida al
+  // scrollear, sin importar cuán larga sea la landing.
+  const opacity = useTransform(scrollY, [40, 120], [0, 1]);
+  const y = useTransform(scrollY, [40, 120], [-24, 0]);
+  const pointer = useTransform(scrollY, (v) => (v > 80 ? "auto" : "none"));
 
   return (
     <>

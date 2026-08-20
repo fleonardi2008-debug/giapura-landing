@@ -22,11 +22,8 @@ export function Intro() {
 
   const frase =
     fase === "recurrente"
-      ? { chica: null, grande: "Pasta de maní de verdad. Pedí el tuyo y te llega a casa." }
-      : {
-          chica: "Después de 6 meses sin poder hacer envíos...",
-          grande: "La primera tanda nacional.",
-        };
+      ? { grande: "Pasta de maní de verdad. Pedí el tuyo y te llega a casa." }
+      : { grande: "La primera tanda nacional." };
 
   return (
     <section className="relative flex min-h-screen flex-col overflow-hidden text-center">
@@ -70,22 +67,11 @@ export function Intro() {
           />
         </motion.div>
 
-        {frase.chica && (
-          <motion.p
-            initial={{ opacity: 0, y: 6 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.32, duration: 0.8, ease: EASE }}
-            className="font-display mt-1 max-w-xs text-base font-light text-white/80 sm:mt-1.5 sm:max-w-md sm:text-lg"
-          >
-            {frase.chica}
-          </motion.p>
-        )}
-
         <motion.h1
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.45, duration: 1, ease: EASE }}
-          className="font-display -mt-1 max-w-[220px] text-3xl font-semibold leading-[1.15] text-paper drop-shadow-[0_4px_18px_rgba(0,0,0,0.45)] sm:-mt-0.5 sm:max-w-2xl sm:text-6xl"
+          transition={{ delay: 0.32, duration: 1, ease: EASE }}
+          className="font-display mt-1 max-w-[220px] text-3xl font-semibold leading-[1.15] text-paper drop-shadow-[0_4px_18px_rgba(0,0,0,0.45)] sm:mt-1.5 sm:max-w-2xl sm:text-6xl"
         >
           {frase.grande}
         </motion.h1>
