@@ -2,14 +2,17 @@ import Image from "next/image";
 import { Reveal } from "@/components/reveal";
 import { BotonComprar } from "@/components/boton-comprar";
 import { Countdown } from "@/components/countdown";
+import { Nut, Lightning, Prohibit, Leaf, ShieldCheck, Heart } from "@phosphor-icons/react/dist/ssr";
 
+// Iconos SVG (Phosphor) en vez de emoji: escalan bien, se controlan por
+// diseño (color/peso) y no dependen de la fuente del sistema operativo.
 const CARACTERISTICAS = [
-  { emoji: "🥜", texto: "100% maní seleccionado. Calidad premium." },
-  { emoji: "⚡", texto: "Energía real. Sin atajos." },
-  { emoji: "🚫", texto: "Sin azúcar agregada." },
-  { emoji: "🌿", texto: "Sin conservantes." },
-  { emoji: "🛡️", texto: "Libre de gluten." },
-  { emoji: "❤️", texto: "La misma receta que nació en mi cocina." },
+  { Icon: Nut, texto: "100% maní seleccionado" },
+  { Icon: Lightning, texto: "Energía real, sin atajos" },
+  { Icon: Prohibit, texto: "Sin azúcar agregada" },
+  { Icon: Leaf, texto: "Sin conservantes" },
+  { Icon: ShieldCheck, texto: "Libre de gluten" },
+  { Icon: Heart, texto: "La misma receta de siempre" },
 ];
 
 export function Comprar() {
@@ -38,19 +41,19 @@ export function Comprar() {
             </h2>
           </Reveal>
 
-          <ul className="mt-10 flex flex-col gap-4">
+          <ul className="mt-8 grid grid-cols-2 gap-3">
             {CARACTERISTICAS.map((c, i) => (
-              <Reveal key={c.texto} delay={0.18 + i * 0.06}>
-                <li className="flex items-center justify-center gap-3 rounded-2xl border border-line bg-bg-2 px-5 py-3.5 text-left lg:justify-start">
-                  <span className="text-xl grayscale contrast-125 brightness-125">{c.emoji}</span>
-                  <span className="text-cream-dim">{c.texto}</span>
+              <Reveal key={c.texto} delay={0.1 + i * 0.05}>
+                <li className="flex h-full flex-col items-center gap-2 rounded-2xl border border-line bg-bg-2 px-3 py-4 text-center lg:items-start lg:text-left">
+                  <c.Icon size={24} weight="bold" className="text-gold" aria-hidden />
+                  <span className="text-sm leading-snug text-cream-dim">{c.texto}</span>
                 </li>
               </Reveal>
             ))}
           </ul>
 
           <Reveal delay={0.45}>
-            <div className="mt-10 flex flex-col items-center gap-3 lg:items-start">
+            <div className="mt-8 flex flex-col items-center gap-3 lg:items-start">
               <BotonComprar />
               <Countdown />
             </div>
