@@ -1,5 +1,5 @@
 import { Reveal } from "@/components/reveal";
-import { PLAZO_ENTREGA, WHATSAPP_NUMERO } from "@/lib/config";
+import { WHATSAPP_NUMERO } from "@/lib/config";
 
 const linkWhatsapp = WHATSAPP_NUMERO ? (
   <a
@@ -22,7 +22,7 @@ const PREGUNTAS = [
   },
   {
     q: "¿Cuándo me llega el pedido?",
-    a: `Es una preventa: producimos cada frasco (y cada caja) recién después de que cierra la ventana de venta. Por eso el plazo de entrega es ${PLAZO_ENTREGA} desde tu compra. Te vamos a ir avisando el estado por email.`,
+    a: "Es una preventa: producimos cada frasco (y cada caja) recién después de que cierra la ventana de venta. Te vamos a ir avisando el estado por email.",
   },
   {
     q: "¿Hacen envíos a todo el país?",

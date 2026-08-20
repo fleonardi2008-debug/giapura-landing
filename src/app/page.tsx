@@ -1,4 +1,3 @@
-import { BarraEnvio } from "@/components/barra-envio";
 import { BarraFija } from "@/components/barra-fija";
 import { Intro } from "@/components/intro";
 import { Comprar } from "@/components/comprar";
@@ -14,10 +13,13 @@ import { BotonWhatsapp } from "@/components/boton-whatsapp";
 // gente que nunca compró). Componente listo en @/components/newsletter,
 // solo falta reincorporarlo acá cuando esté definido el incentivo.
 
+// BarraEnvio: pendiente hasta definir el monto real de envío gratis.
+// Componente listo en @/components/barra-envio, falta reincorporarlo
+// acá con el texto/monto definitivo.
+
 export default function Home() {
   return (
     <main>
-      <BarraEnvio />
       <BarraFija />
       <Intro />
       <Comprar />

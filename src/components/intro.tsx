@@ -6,7 +6,6 @@ import { Logo } from "@/components/logo";
 import { CountdownGrande } from "@/components/countdown";
 import { BotonComprar } from "@/components/boton-comprar";
 import { useFase } from "@/lib/useFase";
-import { PLAZO_ENTREGA } from "@/lib/config";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -83,11 +82,6 @@ export function Intro() {
           className="mt-4 flex flex-col items-center gap-2 sm:mt-5"
         >
           <BotonComprar variant="crema" label="Comprar" />
-          {fase !== "recurrente" && (
-            <p className="text-xs text-white/60">
-              Es preventa: tu pedido llega en {PLAZO_ENTREGA}.
-            </p>
-          )}
         </motion.div>
       </div>
     </section>

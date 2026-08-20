@@ -2,7 +2,6 @@ import Image from "next/image";
 import { Reveal } from "@/components/reveal";
 import { BotonComprar } from "@/components/boton-comprar";
 import { Countdown } from "@/components/countdown";
-import { PLAZO_ENTREGA } from "@/lib/config";
 
 const CARACTERISTICAS = [
   { emoji: "🥜", texto: "100% maní seleccionado. Calidad premium." },
@@ -15,7 +14,7 @@ const CARACTERISTICAS = [
 
 export function Comprar() {
   return (
-    <section id="comprar" className="relative px-6 py-28">
+    <section id="comprar" className="relative px-6 py-12">
       <div className="mx-auto grid max-w-5xl items-center gap-14 lg:grid-cols-2">
         <Reveal className="flex justify-center">
           <Image
@@ -23,7 +22,7 @@ export function Comprar() {
             alt="Pasta de maní Giapura Natural"
             width={1024}
             height={1536}
-            className="h-auto w-full max-w-sm"
+            className="h-auto w-full max-w-md"
           />
         </Reveal>
 
@@ -54,7 +53,6 @@ export function Comprar() {
             <div className="mt-10 flex flex-col items-center gap-3 lg:items-start">
               <BotonComprar />
               <Countdown />
-              <p className="text-xs text-muted">Es preventa: tu pedido llega en {PLAZO_ENTREGA}.</p>
             </div>
           </Reveal>
         </div>
