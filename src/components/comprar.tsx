@@ -20,8 +20,8 @@ export function Comprar() {
           <Image
             src="/frasco-natural.png"
             alt="Pasta de maní Giapura Natural"
-            width={1024}
-            height={1536}
+            width={597}
+            height={1059}
             className="h-auto w-full max-w-md"
           />
         </Reveal>
