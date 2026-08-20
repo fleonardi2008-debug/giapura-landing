@@ -2,12 +2,14 @@ import Image from "next/image";
 import { Reveal } from "@/components/reveal";
 import { BotonComprar } from "@/components/boton-comprar";
 import { Countdown } from "@/components/countdown";
-import { Nut, Lightning, Prohibit, Leaf, ShieldCheck, Heart } from "@phosphor-icons/react/dist/ssr";
+import { Acorn, Lightning, Prohibit, Leaf, ShieldCheck, Heart } from "@phosphor-icons/react/dist/ssr";
 
 // Iconos SVG (Phosphor) en vez de emoji: escalan bien, se controlan por
 // diseño (color/peso) y no dependen de la fuente del sistema operativo.
+// Nota: Phosphor no tiene un ícono de maní; "Acorn" (semilla/nuez) es el
+// más parecido disponible.
 const CARACTERISTICAS = [
-  { Icon: Nut, texto: "100% maní seleccionado" },
+  { Icon: Acorn, texto: "100% maní seleccionado" },
   { Icon: Lightning, texto: "Energía real, sin atajos" },
   { Icon: Prohibit, texto: "Sin azúcar agregada" },
   { Icon: Leaf, texto: "Sin conservantes" },
