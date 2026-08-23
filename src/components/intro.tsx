@@ -53,7 +53,7 @@ export function Intro() {
 
       {/* Columna central: logo + textos + CTA, en un solo bloque compacto,
           todo sobre el mismo eje vertical */}
-      <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 pb-8 pt-4 sm:py-4">
+      <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 pb-16 pt-4 sm:py-4">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
@@ -84,6 +84,23 @@ export function Intro() {
           <BotonComprar variant="crema" label="Comprar" />
         </motion.div>
       </div>
+
+      {/* Ilustración de tapa (línea blanca), de acento en la esquina — solo
+          en mobile, el logo ya cumple esa función en desktop. */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 0.9, y: 0 }}
+        transition={{ delay: 0.5, duration: 1, ease: EASE }}
+        className="pointer-events-none absolute bottom-0 left-0 z-10 w-32 sm:hidden"
+      >
+        <Image
+          src="/hero-ilustracion.webp"
+          alt=""
+          width={480}
+          height={589}
+          className="h-auto w-full"
+        />
+      </motion.div>
     </section>
   );
 }
