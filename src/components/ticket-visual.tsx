@@ -13,6 +13,7 @@ export function TicketVisual() {
           alt="Ticket de Fundador Giapura"
           width={1200}
           height={600}
+          priority
           className="h-auto w-full"
         />
         {/* Brillo que barre una vez cuando el ticket entra en pantalla */}
