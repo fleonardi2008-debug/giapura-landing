@@ -37,7 +37,7 @@ export function TicketFundador() {
         <CountdownGrande />
       </Reveal>
 
-      <Reveal delay={0.1} className="mx-auto mt-16 max-w-md">
+      <Reveal delay={0.1} className="mx-auto mt-16 max-w-lg">
         <TicketVisual />
       </Reveal>
 
