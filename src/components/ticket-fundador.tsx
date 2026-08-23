@@ -25,11 +25,6 @@ export function TicketFundador() {
             <span className="font-medium text-paper">Ticket de Fundador</span>.
           </p>
         </Reveal>
-        <Reveal delay={0.15}>
-          <p className="mx-auto mt-6 text-lg text-paper/70">
-            Cada ticket está numerado. Y ese número va a ser tuyo para siempre.
-          </p>
-        </Reveal>
       </div>
 
       {/* Cuenta regresiva: la condición ahora es solo el tiempo, no una cantidad */}
