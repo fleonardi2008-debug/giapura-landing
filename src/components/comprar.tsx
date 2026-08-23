@@ -2,17 +2,17 @@ import Image from "next/image";
 import { Reveal } from "@/components/reveal";
 import { BotonComprar } from "@/components/boton-comprar";
 import { Countdown } from "@/components/countdown";
-import { Lightning, Prohibit, Leaf, ShieldCheck, Heart } from "@phosphor-icons/react/dist/ssr";
-import { IconMani } from "@/components/icon-mani";
+import { Leaf, ShieldCheck, Heart, Barbell } from "@phosphor-icons/react/dist/ssr";
+import { IconMani, IconSinAzucar } from "@/components/icon-mani";
 
 // Iconos SVG (Phosphor) en vez de emoji: escalan bien, se controlan por
 // diseño (color/peso) y no dependen de la fuente del sistema operativo.
-// Nota: Phosphor no tiene un ícono de maní, así que "100% maní
-// seleccionado" usa un ícono propio (IconMani).
+// Nota: Phosphor no tiene maní ni "sin azúcar" en este estilo, así que
+// esos dos usan íconos propios (icon-mani.tsx).
 const CARACTERISTICAS = [
   { Icon: IconMani, texto: "100% maní seleccionado" },
-  { Icon: Lightning, texto: "Energía real, sin atajos" },
-  { Icon: Prohibit, texto: "Sin azúcar agregada" },
+  { Icon: Barbell, texto: "Energía real, sin atajos" },
+  { Icon: IconSinAzucar, texto: "Sin azúcar agregada" },
   { Icon: Leaf, texto: "Sin conservantes" },
   { Icon: ShieldCheck, texto: "Libre de gluten" },
   { Icon: Heart, texto: "La misma receta de siempre" },
