@@ -53,7 +53,7 @@ export function Intro() {
 
       {/* Columna central: logo + textos + CTA, en un solo bloque compacto,
           todo sobre el mismo eje vertical */}
-      <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 pb-16 pt-4 sm:py-4">
+      <div className="relative z-10 flex flex-1 flex-col items-center justify-start px-6 pt-4 sm:justify-center sm:py-4">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
@@ -91,7 +91,7 @@ export function Intro() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 0.9, y: 0 }}
         transition={{ delay: 0.5, duration: 1, ease: EASE }}
-        className="pointer-events-none absolute -bottom-6 left-0 z-10 w-[68vw] max-w-72 sm:hidden"
+        className="pointer-events-none absolute -bottom-6 left-0 z-10 w-[58vw] max-w-64 sm:hidden"
       >
         <Image
           src="/hero-ilustracion.webp"
