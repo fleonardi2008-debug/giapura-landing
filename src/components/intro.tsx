@@ -91,7 +91,7 @@ export function Intro() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 0.9, y: 0 }}
         transition={{ delay: 0.5, duration: 1, ease: EASE }}
-        className="pointer-events-none absolute bottom-0 left-0 z-10 w-32 sm:hidden"
+        className="pointer-events-none absolute -bottom-6 left-0 z-10 w-[68vw] max-w-72 sm:hidden"
       >
         <Image
           src="/hero-ilustracion.webp"
