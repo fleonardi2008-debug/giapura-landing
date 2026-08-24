@@ -41,8 +41,14 @@ const MASCARA = {
    */
   cruceEntra:
     "linear-gradient(to bottom, transparent 0px, rgba(0,0,0,0.22) 115px, #000 235px, #000 calc(100% - 235px), rgba(0,0,0,0.22) calc(100% - 115px), transparent 100%)",
-  /** Espejo de `cruceSale` para el borde de abajo: aparece al final. */
-  salidaEntra: "linear-gradient(to top, #000 0px, rgba(0,0,0,0.8) 95px, transparent 215px)",
+  /**
+   * Borde de abajo. A diferencia de `cruceSale`, no llega entera al límite:
+   * sube desde cero, tiene su pico dentro del degradé y vuelve a cero justo
+   * cuando el fondo termina de aclarar. Si llegara al borde a fuerza máxima
+   * el maní se cortaría después del degradé, con el fondo ya plano.
+   */
+  salidaEntra:
+    "linear-gradient(to top, transparent 0px, rgba(0,0,0,0.5) 55px, #000 125px, rgba(0,0,0,0.55) 195px, transparent 255px)",
   ambos:
     "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 18%, rgba(0,0,0,0.18) 50%, rgba(0,0,0,0.5) 82%, transparent 100%)",
 } as const;

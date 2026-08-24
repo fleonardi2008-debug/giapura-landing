@@ -39,7 +39,7 @@ const CAPTURAS: readonly Captura[] = [
 
 export function Testimonios() {
   return (
-    <section id="opiniones" className="relative overflow-hidden bg-bg-2 px-6 pb-6 pt-10">
+    <section id="opiniones" className="relative overflow-hidden bg-bg-2 px-6 pb-6 pt-2">
       {/* La transición desde el marrón la resuelve Fundador en su propio borde
           inferior, para que el patrón de maníes acompañe al degradé en vez de
           cortarse antes. Acá solo queda el color plano. */}
