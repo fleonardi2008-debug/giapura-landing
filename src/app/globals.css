@@ -114,6 +114,22 @@ body {
   .animate-halo { animation: none; opacity: 0.9; }
 }
 
+/* Chips de beneficios del Ticket: flotan muy suave, desfasados entre sí, para
+   que el bloque tenga vida sin distraer de la lectura. */
+.chip-flota {
+  animation: chip-flota 5.5s ease-in-out infinite;
+}
+@keyframes chip-flota {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+.chip-flota:hover {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .chip-flota { animation: none; }
+}
+
 /* Botón premium: brillo que barre + lift */
 .btn-shine {
   position: relative;

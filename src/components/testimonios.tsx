@@ -2,10 +2,13 @@ import Image from "next/image";
 import { Reveal } from "@/components/reveal";
 import { BotonComprar } from "@/components/boton-comprar";
 import { PuenteColor } from "@/components/puente-color";
+import { CarruselCapturas } from "@/components/carrusel-capturas";
+
+export type Captura = { file: string; w: number; h: number };
 
 // Capturas reales de WhatsApp de clientes. Dimensiones intrínsecas (ya
 // corregidas por orientación EXIF) para que next/image evite layout shift.
-const CAPTURAS = [
+const CAPTURAS: readonly Captura[] = [
   { file: "t01.jpg", w: 1170, h: 555 },
   { file: "t02.jpg", w: 1170, h: 558 },
   { file: "t03.jpg", w: 1170, h: 403 },
@@ -42,42 +45,23 @@ export function Testimonios() {
       <PuenteColor desde="dark" posicion="arriba" altura={180} />
 
       <div className="relative mx-auto max-w-6xl">
+        {/* El titular carga todo el peso; el párrafo largo que había debajo
+            competía con él y no dejaba que nada resaltara. */}
         <Reveal>
-          <h2 className="font-display text-center text-5xl font-semibold leading-[0.98] sm:text-6xl">
+          <h2 className="font-display text-center text-[3.25rem] font-semibold leading-[0.95] sm:text-7xl">
             No hace falta que me <span className="text-gradient-gold">creas a mí</span>.
           </h2>
         </Reveal>
         <Reveal delay={0.08}>
-          <p className="mx-auto mt-5 max-w-xl text-center text-cream-dim">
-            Durante estos meses me llegaron cientos de mensajes. Estas son capturas reales
-            de clientes que ya la probaron.
+          <p className="mx-auto mt-6 max-w-md text-center text-lg font-medium text-cream-dim">
+            Capturas reales de clientes que ya la probaron.
           </p>
         </Reveal>
 
-        {/* Mobile: carrusel horizontal con scroll-snap (el usuario desliza) */}
-        <Reveal delay={0.1} className="sm:hidden">
-          <p className="mt-2 text-center text-xs uppercase tracking-[0.18em] text-muted">
-            Deslizá para ver más →
-          </p>
-        </Reveal>
-        <Reveal delay={0.14} className="mt-8 sm:hidden">
-          <div className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {CAPTURAS.map((c) => (
-              <div
-                key={c.file}
-                className="flex h-[420px] w-[84vw] shrink-0 snap-center items-center justify-center"
-              >
-                <Image
-                  src={`/testimonios/${c.file}`}
-                  alt="Captura de WhatsApp de un cliente de Giapura"
-                  width={c.w}
-                  height={c.h}
-                  sizes="84vw"
-                  className="h-auto max-h-full w-auto max-w-full rounded-3xl"
-                />
-              </div>
-            ))}
-          </div>
+        {/* Mobile: carrusel horizontal con scroll-snap + flechas, para que se
+            entienda que hay más contenido a los costados. */}
+        <Reveal delay={0.12} className="mt-8 sm:hidden">
+          <CarruselCapturas capturas={CAPTURAS} />
         </Reveal>
 
         {/* Desktop/tablet: grilla masonry */}

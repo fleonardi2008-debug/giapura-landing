@@ -21,21 +21,24 @@ export function Gracias() {
         </span>
       </Reveal>
 
-      <div className="mx-auto mt-10 max-w-xl space-y-6 text-lg leading-relaxed text-paper/70">
+      <div className="mx-auto mt-10 max-w-xl space-y-6 text-lg leading-relaxed text-paper/85">
         <Reveal delay={0.05}>
           <p>Si llegaste hasta acá, es porque decidiste ser parte de esta historia.</p>
         </Reveal>
         <Reveal delay={0.1}>
-          <p>Hace seis meses esto era una idea. Hoy puedo hacer envíos a todo el país.</p>
+          <p>
+            Hace seis meses esto era una idea. Hoy puedo hacer envíos a{" "}
+            <span className="font-semibold text-paper">todo el país</span>.
+          </p>
         </Reveal>
         <Reveal delay={0.15}>
-          <p className="text-paper">
+          <p className="font-display text-2xl leading-snug text-gold-bright sm:text-3xl">
             Ojalá dentro de unos años podamos mirar para atrás y decir: “qué locura haber
             estado desde el principio”.
           </p>
         </Reveal>
         <Reveal delay={0.2}>
-          <p>Gracias por confiar.</p>
+          <p className="font-semibold text-paper">Gracias por confiar.</p>
         </Reveal>
         <Reveal delay={0.25}>
           <p className="font-display text-2xl text-paper">— Fran</p>
@@ -49,16 +52,19 @@ export function Gracias() {
       </Reveal>
 
       <Reveal delay={0.4}>
-        <div className="mt-24 border-t border-paper/15 pt-8 text-sm text-paper/50">
+        <div className="mt-24 border-t border-paper/15 pt-8 text-sm text-paper/75">
           <Wordmark className="text-xl text-gold-bright" />
           <p className="mt-3">
             ¿Dudas? Escribinos a{" "}
-            <a href="https://instagram.com/giapura" className="text-gold-bright hover:underline">
+            <a
+              href="https://instagram.com/giapura"
+              className="font-semibold text-gold-bright hover:underline"
+            >
               @giapura
             </a>{" "}
             en Instagram.
           </p>
-          <p className="mt-4 text-xs text-paper/30">
+          <p className="mt-4 text-xs text-paper/55">
             © {new Date().getFullYear()} Giapura. Hecho en Argentina.
           </p>
         </div>
