@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "@/components/reveal";
 import { BotonComprar } from "@/components/boton-comprar";
-import { PuenteColor } from "@/components/puente-color";
 import { CarruselCapturas } from "@/components/carrusel-capturas";
 
 export type Captura = { file: string; w: number; h: number };
@@ -40,10 +39,10 @@ const CAPTURAS: readonly Captura[] = [
 
 export function Testimonios() {
   return (
-    <section id="opiniones" className="relative overflow-hidden bg-bg-2 px-6 pb-6 pt-36">
-      {/* Salida del marrón de Fundador hacia el crema, sin corte seco. */}
-      <PuenteColor desde="dark" posicion="arriba" altura={180} />
-
+    <section id="opiniones" className="relative overflow-hidden bg-bg-2 px-6 pb-6 pt-10">
+      {/* La transición desde el marrón la resuelve Fundador en su propio borde
+          inferior, para que el patrón de maníes acompañe al degradé en vez de
+          cortarse antes. Acá solo queda el color plano. */}
       <div className="relative z-10 mx-auto max-w-6xl">
         {/* El titular carga todo el peso; el párrafo largo que había debajo
             competía con él y no dejaba que nada resaltara. */}

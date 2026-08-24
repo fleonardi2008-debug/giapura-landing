@@ -15,18 +15,22 @@ export function TicketFundador() {
   return (
     <section
       id="fundador"
-      className="relative overflow-hidden bg-dark px-6 pb-16 pt-40 text-paper"
+      className="relative overflow-hidden bg-dark px-6 pb-48 pt-40 text-paper"
     >
-      {/* El salto crema → marrón era el corte más duro de la página: el
-          degradé arranca con el color de la sección de arriba y se disuelve. */}
+      {/* Las dos transiciones de esta sección viven acá adentro, no en las
+          secciones vecinas: el patrón solo existe dentro de la sección, así
+          que si el degradé estuviera afuera los maníes se cortarían en el
+          borde y el color seguiría solo. */}
       <PuenteColor desde="bg" posicion="arriba" altura={200} />
-      {/* Dos capas del mismo tile, ancladas al borde de arriba y por lo tanto
-          en fase con las cáscaras de la sección anterior: los maníes que corta
-          el límite siguen acá. La marrón viene de la sección clara y se apaga;
-          la crema entra a medida que el fondo oscurece. Se cruzan, así la
-          cáscara nunca desaparece: solo cambia de color a mitad de camino. */}
+      <PuenteColor desde="bg-2" posicion="abajo" altura={200} />
+
+      {/* Tres capas del mismo tile, todas ancladas arriba y por lo tanto en
+          fase entre sí y con las cáscaras de la sección anterior. La marrón
+          entra en los dos bordes claros y la crema ocupa el medio oscuro:
+          la cáscara nunca desaparece, solo cambia de color al cruzar. */}
       <PatronMani variante="marron" borde="cruceSale" anclaje="top" opacidad={0.17} />
       <PatronMani variante="crema" borde="cruceEntra" anclaje="top" opacidad={0.13} />
+      <PatronMani variante="marron" borde="salidaEntra" anclaje="top" opacidad={0.17} />
 
       <div className="relative z-10 mx-auto max-w-2xl text-center">
         <Reveal>

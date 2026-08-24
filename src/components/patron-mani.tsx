@@ -35,9 +35,14 @@ const MASCARA = {
     "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.45) 34%, #000 78%, #000 100%)",
   /** Capa que viene de la sección anterior y se apaga ya cruzado el límite. */
   cruceSale: "linear-gradient(to bottom, #000 0px, rgba(0,0,0,0.8) 95px, transparent 215px)",
-  /** Capa de la sección nueva, que toma el relevo a medida que oscurece. */
+  /**
+   * Capa propia de la sección oscura: entra por arriba a medida que oscurece
+   * y vuelve a salir por abajo cuando aclara, con los mismos tiempos.
+   */
   cruceEntra:
-    "linear-gradient(to bottom, transparent 0px, rgba(0,0,0,0.22) 115px, #000 235px, #000 100%)",
+    "linear-gradient(to bottom, transparent 0px, rgba(0,0,0,0.22) 115px, #000 235px, #000 calc(100% - 235px), rgba(0,0,0,0.22) calc(100% - 115px), transparent 100%)",
+  /** Espejo de `cruceSale` para el borde de abajo: aparece al final. */
+  salidaEntra: "linear-gradient(to top, #000 0px, rgba(0,0,0,0.8) 95px, transparent 215px)",
   ambos:
     "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 18%, rgba(0,0,0,0.18) 50%, rgba(0,0,0,0.5) 82%, transparent 100%)",
 } as const;
