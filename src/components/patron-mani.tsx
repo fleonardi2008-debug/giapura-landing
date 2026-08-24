@@ -40,15 +40,17 @@ const MASCARA = {
    * y vuelve a salir por abajo cuando aclara, con los mismos tiempos.
    */
   cruceEntra:
-    "linear-gradient(to bottom, transparent 0px, rgba(0,0,0,0.22) 115px, #000 235px, #000 calc(100% - 235px), rgba(0,0,0,0.22) calc(100% - 115px), transparent 100%)",
+    "linear-gradient(to bottom, transparent 0px, rgba(0,0,0,0.22) 115px, #000 235px, #000 calc(100% - 190px), rgba(0,0,0,0.35) calc(100% - 130px), transparent calc(100% - 80px))",
   /**
-   * Borde de abajo. A diferencia de `cruceSale`, no llega entera al límite:
-   * sube desde cero, tiene su pico dentro del degradé y vuelve a cero justo
-   * cuando el fondo termina de aclarar. Si llegara al borde a fuerza máxima
-   * el maní se cortaría después del degradé, con el fondo ya plano.
+   * Borde de abajo, calibrada contra la curva real del PuenteColor de 200px.
+   * Como el degradé es smootherstep, el fondo llega a ~50% de crema a 100px
+   * del borde, a ~82% a 65px y prácticamente plano a 35px. Por eso la capa
+   * pica alrededor de los 100px y ya está en cero a los 35: más abajo el
+   * maní se vería sobre fondo plano (se cortaría después del degradé) y más
+   * arriba caería en la zona oscura, donde el marrón directamente no se ve.
    */
   salidaEntra:
-    "linear-gradient(to top, transparent 0px, rgba(0,0,0,0.5) 55px, #000 125px, rgba(0,0,0,0.55) 195px, transparent 255px)",
+    "linear-gradient(to top, transparent 0px, transparent 35px, rgba(0,0,0,0.55) 65px, #000 100px, rgba(0,0,0,0.5) 145px, transparent 185px)",
   ambos:
     "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 18%, rgba(0,0,0,0.18) 50%, rgba(0,0,0,0.5) 82%, transparent 100%)",
 } as const;
