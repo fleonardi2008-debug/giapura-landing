@@ -6,15 +6,18 @@
   --bg-2: #f5eedf;        /* Crema claro — secciones alternadas */
   --bg-3: #e4d6bb;        /* Beige más profundo — tarjetas */
   --dark: #240d08;        /* Marrón casi negro — secciones oscuras */
-  /* Texto */
+  /* Texto — la jerarquía se marca con peso y tamaño, no bajando el contraste.
+     Los tonos apagados anteriores (#5a3a28 / #8a6f52) se leían lavados: el
+     terciario daba 3.6:1 sobre el fondo, por debajo del mínimo accesible. */
   --cream: #240d08;       /* Texto principal (sobre claro) */
-  --cream-dim: #5a3a28;   /* Texto secundario */
-  --muted: #8a6f52;       /* Texto terciario / labels */
+  --cream-dim: #3f1d0e;   /* Texto secundario — 11.6:1 sobre el fondo */
+  --muted: #6d2900;       /* Labels / eyebrows — cacao de marca, no gris */
   --paper: #f5eedf;       /* Texto sobre secciones oscuras */
   /* Acentos de marca */
   --gold: #6d2900;        /* Marrón Cacao */
   --gold-bright: #f5cf89; /* Beige Natural (maní) */
-  --btn: #80613b;         /* Marrón botón (pill) */
+  --btn: #4a1c05;         /* Marrón botón (pill) — cacao profundo, premium */
+  --btn-hover: #351203;   /* Botón en hover — un paso más oscuro */
   --line: rgba(36, 13, 8, 0.14);
 }
 
@@ -30,6 +33,7 @@
   --color-gold: var(--gold);
   --color-gold-bright: var(--gold-bright);
   --color-btn: var(--btn);
+  --color-btn-hover: var(--btn-hover);
   --color-line: var(--line);
   /* Texto principal (títulos grandes, subtítulo, "Muy pronto"): Playfair Display. */
   --font-display: var(--font-playfair), ui-serif, serif;

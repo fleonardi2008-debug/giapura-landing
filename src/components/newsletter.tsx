@@ -59,7 +59,7 @@ export function Newsletter() {
               <button
                 type="submit"
                 disabled={estado === "cargando"}
-                className="btn-shine group inline-flex items-center justify-center gap-2 rounded-full bg-btn px-7 py-3 text-sm font-medium text-paper transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:bg-[#6d2900] active:translate-y-0 active:scale-95 disabled:opacity-60"
+                className="btn-shine group inline-flex items-center justify-center gap-2 rounded-full bg-btn px-7 py-3 text-sm font-medium text-paper transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:bg-btn-hover active:translate-y-0 active:scale-95 disabled:opacity-60"
               >
                 <span className="shine" aria-hidden />
                 <span className="relative">{estado === "cargando" ? "Enviando..." : "Avisame"}</span>

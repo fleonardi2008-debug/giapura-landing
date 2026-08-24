@@ -45,8 +45,8 @@ export function BotonComprar({
     variant === "outline"
       ? "border border-paper/40 text-paper hover:border-paper hover:shadow-[0_16px_40px_-12px_rgba(245,238,223,0.35)]"
       : variant === "crema"
-        ? "bg-[#F5CF89] text-[#753b18] hover:bg-[#f7d89e] shadow-[0_10px_30px_-10px_rgba(36,13,8,0.4)] hover:shadow-[0_22px_55px_-12px_rgba(36,13,8,0.55)]"
-        : "bg-btn text-paper hover:bg-[#6d2900] shadow-[0_10px_30px_-10px_rgba(109,41,0,0.5)] hover:shadow-[0_22px_55px_-12px_rgba(109,41,0,0.75)]";
+        ? "bg-[#F5CF89] text-btn hover:bg-[#f7d89e] shadow-[0_10px_30px_-10px_rgba(36,13,8,0.4)] hover:shadow-[0_22px_55px_-12px_rgba(36,13,8,0.55)]"
+        : "bg-btn text-paper hover:bg-btn-hover shadow-[0_10px_30px_-10px_rgba(74,28,5,0.55)] hover:shadow-[0_22px_55px_-12px_rgba(74,28,5,0.8)]";
 
   return (
     <a

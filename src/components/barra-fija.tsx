@@ -54,10 +54,10 @@ export function BarraFija() {
               <a
                 key={l.href}
                 href={l.href}
-                className="group relative text-sm font-medium text-cream-dim transition-colors hover:text-cream"
+                className="group relative text-sm font-semibold text-cream transition-colors hover:text-btn"
               >
                 {l.label}
-                <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gold transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-btn transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full" />
               </a>
             ))}
           </nav>
