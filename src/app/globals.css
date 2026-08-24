@@ -95,6 +95,25 @@ body {
 .animate-aurora { animation: aurora-drift 24s ease-in-out infinite; }
 .animate-aurora-2 { animation: aurora-drift 30s ease-in-out infinite reverse; }
 
+/* Halo detrás del logo del hero: mancha cálida que respira muy lento, para
+   que el logo no quede plano sobre la foto. */
+.animate-halo {
+  background: radial-gradient(
+    closest-side,
+    rgba(255, 236, 195, 0.6),
+    rgba(245, 207, 137, 0.3) 48%,
+    rgba(245, 207, 137, 0) 76%
+  );
+  animation: halo-breathe 7s ease-in-out infinite;
+}
+@keyframes halo-breathe {
+  0%, 100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.07); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-halo { animation: none; opacity: 0.9; }
+}
+
 /* Botón premium: brillo que barre + lift */
 .btn-shine {
   position: relative;

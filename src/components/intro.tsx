@@ -26,17 +26,20 @@ export function Intro() {
 
   return (
     <section className="relative flex min-h-screen flex-col overflow-hidden text-center">
+      {/* La foto viene bastante apagada de origen: le subimos exposición y algo
+          de saturación por CSS para que la pasta se vea apetecible. */}
       <Image
         src="/textura-mani.jpg"
         alt="Textura de la pasta de maní Giapura"
         fill
         priority
         sizes="100vw"
-        className="object-cover"
+        className="object-cover brightness-[1.28] contrast-[1.06] saturate-[1.12]"
       />
       {/* Velo marrón oscuro de marca, uniforme (no degradé): garantiza que el
-          texto blanco se lea sobre la foto en toda la superficie. */}
-      <div className="pointer-events-none absolute inset-0 bg-dark/40" />
+          texto blanco se lea sobre la foto en toda la superficie. Se alivianó
+          junto con la subida de exposición para no anular la ganancia. */}
+      <div className="pointer-events-none absolute inset-0 bg-dark/28" />
 
       {/* Countdown, arriba (la navbar está transparente al principio, así que
           solo tiene que despejar la barra de envío gratis). */}
@@ -58,11 +61,18 @@ export function Intro() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.9, ease: EASE }}
+          className="relative isolate"
         >
+          {/* Halo cálido detrás del logo: lo despega de la foto y evita que
+              quede plano. Respira con una animación CSS muy lenta. */}
+          <span
+            aria-hidden
+            className="animate-halo pointer-events-none absolute left-1/2 top-1/2 -z-10 block h-[260%] w-[180%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl"
+          />
           <Logo
             priority
             variant="blanco"
-            className="h-[77px] w-auto drop-shadow-[0_6px_20px_rgba(0,0,0,0.4)] sm:h-32"
+            className="relative z-10 h-[77px] w-auto drop-shadow-[0_6px_20px_rgba(0,0,0,0.45)] sm:h-32"
           />
         </motion.div>
 
