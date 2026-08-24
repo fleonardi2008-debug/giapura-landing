@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "motion/react";
+
 /**
  * Patrón de maníes de la tapa del frasco, usado como marca de agua de fondo.
  *
@@ -75,12 +79,17 @@ export function PatronMani({
   tamano?: number;
 }) {
   return (
-    <div
+    /* Entra al scrollear, como los textos: si el fondo ya estuviera puesto
+       cuando la sección aparece, la sección se sentiría en dos tiempos. */
+    <motion.div
       aria-hidden
       /* z-[2]: por encima del PuenteColor (z-[1]), si no el degradé tapa
          justo los maníes del cruce. El contenido va en z-10. */
       className="pointer-events-none absolute inset-0 z-[2] overflow-hidden"
-      style={{ opacity: opacidad }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: opacidad }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
     >
       <div
         className="absolute inset-0"
@@ -93,6 +102,6 @@ export function PatronMani({
           WebkitMaskImage: MASCARA[borde],
         }}
       />
-    </div>
+    </motion.div>
   );
 }

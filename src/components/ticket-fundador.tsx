@@ -15,7 +15,7 @@ export function TicketFundador() {
   return (
     <section
       id="fundador"
-      className="relative overflow-hidden bg-dark px-6 pb-48 pt-40 text-paper"
+      className="relative overflow-hidden bg-dark px-6 pb-48 pt-28 text-paper"
     >
       {/* Las dos transiciones de esta sección viven acá adentro, no en las
           secciones vecinas: el patrón solo existe dentro de la sección, así
@@ -45,10 +45,16 @@ export function TicketFundador() {
           </h2>
         </Reveal>
 
+        {/* Cortes de línea fijos: el quiebre natural dejaba "se llevan un"
+            colgando solo y la frase perdía ritmo. */}
         <Reveal delay={0.1}>
-          <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-paper/85">
-            Todos los que compren durante las primeras 24 horas se llevan un{" "}
-            <span className="font-semibold text-gold-bright">Ticket de Fundador</span>.
+          <p className="mx-auto mt-8 text-lg leading-relaxed text-paper/85 sm:text-xl">
+            <span className="block">Todos los que compren</span>
+            <span className="block">durante las primeras 24 horas</span>
+            <span className="block">
+              se llevan un{" "}
+              <span className="font-semibold text-gold-bright">Ticket de Fundador</span>.
+            </span>
           </p>
         </Reveal>
       </div>

@@ -21,7 +21,7 @@ const CARACTERISTICAS = [
 
 export function Comprar() {
   return (
-    <section id="comprar" className="relative overflow-hidden px-6 pb-12 pt-6 sm:py-12">
+    <section id="comprar" className="relative overflow-hidden px-6 pb-6 pt-6 sm:pb-6 sm:pt-12">
       {/* Maníes en marrón, anclados al borde de abajo: así el patrón corta
           sobre una junta del tile y las cáscaras siguen en la sección
           siguiente en vez de reiniciarse. */}

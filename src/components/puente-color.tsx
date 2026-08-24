@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "motion/react";
+
 /**
  * Puente de color entre dos secciones contiguas.
  *
@@ -51,11 +55,18 @@ export function PuenteColor({
 }) {
   const direccion = posicion === "arriba" ? "to bottom" : "to top";
   return (
-    <div
+    /* El degradé también entra al scrollear, en sintonía con el patrón y los
+       textos: el fondo forma parte de la aparición de la sección, no es un
+       telón que ya estaba puesto. */
+    <motion.div
       aria-hidden
       className={`pointer-events-none absolute inset-x-0 z-[1] ${
         posicion === "arriba" ? "top-0" : "bottom-0"
       }`}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
       style={{
         height: altura,
         background: `linear-gradient(${direccion}, ${paradas(COLOR[desde])})`,
