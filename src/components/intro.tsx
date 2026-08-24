@@ -62,18 +62,11 @@ export function Intro() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.9, ease: EASE }}
-          className="relative isolate"
         >
-          {/* Halo cálido detrás del logo: lo despega de la foto y evita que
-              quede plano. Respira con una animación CSS muy lenta. */}
-          <span
-            aria-hidden
-            className="animate-halo pointer-events-none absolute left-1/2 top-1/2 -z-10 block h-[260%] w-[180%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl"
-          />
           <Logo
             priority
             variant="blanco"
-            className="relative z-10 h-[77px] w-auto drop-shadow-[0_6px_20px_rgba(0,0,0,0.45)] sm:h-32"
+            className="h-[77px] w-auto drop-shadow-[0_6px_20px_rgba(0,0,0,0.45)] sm:h-32"
           />
         </motion.div>
 
