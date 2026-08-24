@@ -8,7 +8,7 @@ import { PuenteColor } from "@/components/puente-color";
 const BENEFICIOS = [
   "Accesos anticipados.",
   "Beneficios exclusivos.",
-  "Cosas que todavía no puedo contar.",
+  "Y cosas que voy a ir revelando con el tiempo.",
 ];
 
 export function TicketFundador() {
@@ -22,7 +22,7 @@ export function TicketFundador() {
       <PuenteColor desde="bg" posicion="arriba" altura={200} />
       {/* Maníes en crema — el color de la sección de arriba — densos contra
           ese mismo borde, así el patrón continúa cruzando la transición. */}
-      <PatronMani variante="crema" borde="arriba" opacidad={0.06} />
+      <PatronMani variante="crema" borde="arriba" opacidad={0.13} />
 
       <div className="relative mx-auto max-w-2xl text-center">
         <Reveal>
@@ -61,22 +61,16 @@ export function TicketFundador() {
           </h3>
         </Reveal>
 
-        {/* Tres líneas, con el peso creciendo hacia la última: la jerarquía
-            la marca la negrita y el tamaño, no bajarle opacidad al texto. */}
-        <div className="mx-auto mt-10 max-w-xl space-y-4">
+        {/* La jerarquía la marca el peso y el tamaño, no bajarle opacidad. */}
+        <div className="mx-auto mt-10 max-w-xl space-y-5">
           <Reveal delay={0.08}>
             <p className="text-lg leading-relaxed text-paper/85">
-              Significa haber estado desde el principio.
+              Significa haber confiado cuando todo esto recién empezaba.
             </p>
           </Reveal>
           <Reveal delay={0.14}>
-            <p className="text-lg leading-relaxed text-paper/85">
-              Cuando confiar todavía era un riesgo.
-            </p>
-          </Reveal>
-          <Reveal delay={0.2}>
             <p className="font-display text-2xl font-semibold text-gold-bright sm:text-3xl">
-              Y eso, con el tiempo, vale.
+              Y esa confianza va a tener recompensas.
             </p>
           </Reveal>
         </div>

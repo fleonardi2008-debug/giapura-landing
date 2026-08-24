@@ -7,10 +7,9 @@ import type { Captura } from "@/components/testimonios";
 
 /**
  * Carrusel de capturas para mobile. El scroll-snap solo no comunica que hay
- * más contenido al costado, así que suma flechas y un indicador de posición.
- * Las flechas además son el equivalente accesible del gesto de deslizar:
- * un carrusel que solo responde al swipe deja afuera a quien navega por
- * teclado.
+ * más contenido al costado, así que suma flechas a los lados. Las flechas
+ * además son el equivalente accesible del gesto de deslizar: un carrusel que
+ * solo responde al swipe deja afuera a quien navega por teclado.
  */
 export function CarruselCapturas({ capturas }: { capturas: readonly Captura[] }) {
   const pistaRef = useRef<HTMLDivElement>(null);
@@ -67,7 +66,7 @@ export function CarruselCapturas({ capturas }: { capturas: readonly Captura[] })
         {capturas.map((c) => (
           <div
             key={c.file}
-            className="flex h-[420px] w-[84vw] shrink-0 snap-center items-center justify-center"
+            className="flex h-[380px] w-[84vw] shrink-0 snap-center items-center justify-center"
           >
             <Image
               src={`/testimonios/${c.file}`}
@@ -88,10 +87,6 @@ export function CarruselCapturas({ capturas }: { capturas: readonly Captura[] })
         deshabilitada={primera}
       />
       <Flecha lado="derecha" onClick={() => irA(indice + 1)} deshabilitada={ultima} />
-
-      <p className="mt-3 text-center text-xs font-semibold uppercase tracking-[0.18em] text-muted">
-        {indice + 1} / {capturas.length}
-      </p>
     </div>
   );
 }
@@ -112,7 +107,7 @@ function Flecha({
       onClick={onClick}
       disabled={deshabilitada}
       aria-label={lado === "izquierda" ? "Ver la captura anterior" : "Ver la captura siguiente"}
-      className={`absolute top-[190px] z-10 flex h-11 w-11 items-center justify-center rounded-full border border-line bg-bg-2/90 text-cream shadow-[0_6px_20px_-8px_rgba(36,13,8,0.5)] backdrop-blur-sm transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] active:scale-90 disabled:pointer-events-none disabled:opacity-0 ${
+      className={`absolute top-[170px] z-10 flex h-11 w-11 items-center justify-center rounded-full border border-line bg-bg-2/90 text-cream shadow-[0_6px_20px_-8px_rgba(36,13,8,0.5)] backdrop-blur-sm transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] active:scale-90 disabled:pointer-events-none disabled:opacity-0 ${
         lado === "izquierda" ? "-left-1" : "-right-1"
       }`}
     >

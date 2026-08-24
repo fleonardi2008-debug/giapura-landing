@@ -56,7 +56,8 @@ export function Intro() {
 
       {/* Columna central: logo + textos + CTA, en un solo bloque compacto,
           todo sobre el mismo eje vertical */}
-      <div className="relative z-10 flex flex-1 flex-col items-center justify-start px-6 pt-20 sm:justify-center sm:py-4">
+      {/* pb en desktop: deja al botón despegado del degradé de salida. */}
+      <div className="relative z-10 flex flex-1 flex-col items-center justify-start px-6 pt-20 sm:justify-center sm:pb-28 sm:pt-4">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
@@ -99,7 +100,7 @@ export function Intro() {
           siguiente, así el corte foto → color no queda seco. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-28 bg-gradient-to-b from-transparent to-bg sm:h-36"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-16 bg-gradient-to-b from-transparent to-bg sm:h-24"
       />
 
       {/* Ilustración de tapa (línea blanca), de acento en la esquina — solo

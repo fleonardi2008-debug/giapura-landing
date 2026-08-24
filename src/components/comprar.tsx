@@ -24,7 +24,7 @@ export function Comprar() {
     <section id="comprar" className="relative overflow-hidden px-6 pb-12 pt-6 sm:py-12">
       {/* Maníes en marrón — el color de la sección de abajo — densos hacia el
           borde inferior, para que el patrón cruce hacia la sección oscura. */}
-      <PatronMani variante="marron" borde="abajo" opacidad={0.07} />
+      <PatronMani variante="marron" borde="abajo" opacidad={0.17} />
 
       <div className="relative mx-auto grid max-w-5xl items-center gap-14 lg:grid-cols-2">
         <Reveal className="flex justify-center">

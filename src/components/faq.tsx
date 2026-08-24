@@ -63,9 +63,9 @@ const PREGUNTAS = [
 
 export function Faq() {
   return (
-    <section id="faq" className="relative overflow-hidden px-6 pb-24 pt-32">
+    <section id="faq" className="relative overflow-hidden px-6 pb-24 pt-12">
       {/* Sin borde duro: el crema de Testimonios se disuelve en el beige. */}
-      <PuenteColor desde="bg-2" posicion="arriba" altura={130} />
+      <PuenteColor desde="bg-2" posicion="arriba" altura={90} />
 
       <div className="relative mx-auto max-w-3xl">
         <Reveal>

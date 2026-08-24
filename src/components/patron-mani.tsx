@@ -1,9 +1,16 @@
 /**
  * Patrón de maníes de la tapa del frasco, usado como marca de agua de fondo.
  *
- * El tile es un espejado 2×2 del arte original: el arte suelto no calzaba
- * consigo mismo (los bordes opuestos no coinciden), así que espejarlo
- * garantiza repetición sin costuras.
+ * El tile está armado a partir de las cáscaras sueltas del arte original,
+ * por dos motivos:
+ *
+ * 1. En el arte completo, el 81% de la tinta son los granos rellenos y solo
+ *    el 19% las cáscaras de línea. A opacidad de marca de agua se veían los
+ *    borrones y no los maníes, así que el patrón usa solo las cáscaras.
+ * 2. Repetir el arte espejado dejaba simetrías evidentes (mariposas, "V").
+ *    Acá las cáscaras se colocan salteadas con envolvente en los bordes: lo
+ *    que sale por un lado entra por el opuesto, así el tile calza de verdad
+ *    sin necesidad de espejar.
  *
  * `borde` controla dónde el patrón se ve más denso. Poniéndolo pegado al
  * límite que la sección comparte con su vecina, el dibujo "cruza" la
@@ -24,8 +31,8 @@ const MASCARA = {
 export function PatronMani({
   variante,
   borde = "ambos",
-  opacidad = 0.08,
-  tamano = 360,
+  opacidad = 0.16,
+  tamano = 460,
 }: {
   variante: keyof typeof FUENTE;
   borde?: keyof typeof MASCARA;

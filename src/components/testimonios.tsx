@@ -40,7 +40,7 @@ const CAPTURAS: readonly Captura[] = [
 
 export function Testimonios() {
   return (
-    <section id="opiniones" className="relative overflow-hidden bg-bg-2 px-6 pb-28 pt-36">
+    <section id="opiniones" className="relative overflow-hidden bg-bg-2 px-6 pb-6 pt-36">
       {/* Salida del marrón de Fundador hacia el crema, sin corte seco. */}
       <PuenteColor desde="dark" posicion="arriba" altura={180} />
 
@@ -83,7 +83,7 @@ export function Testimonios() {
         </div>
 
         <Reveal delay={0.2}>
-          <div className="mt-16 flex justify-center">
+          <div className="mt-4 flex justify-center">
             <BotonComprar label="Yo también quiero" />
           </div>
         </Reveal>
