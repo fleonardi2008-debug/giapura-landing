@@ -21,11 +21,20 @@ const FUENTE = {
   crema: "/patron-mani-crema.webp",
 } as const;
 
+/**
+ * Las máscaras se apagan contra el borde compartido, no ahí es donde son más
+ * densas. Si el patrón llega a full hasta el corte y del otro lado arranca
+ * otro patrón de otro color, esa diferencia de densidad vuelve a dibujar la
+ * línea que el degradé de color acaba de borrar. Apagándose a los dos lados,
+ * la densidad cruza el límite sin escalón.
+ */
 const MASCARA = {
-  abajo: "linear-gradient(to bottom, transparent 6%, rgba(0,0,0,0.3) 48%, #000 100%)",
-  arriba: "linear-gradient(to top, transparent 6%, rgba(0,0,0,0.3) 48%, #000 100%)",
+  abajo:
+    "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.45) 34%, #000 66%, rgba(0,0,0,0.4) 88%, transparent 100%)",
+  arriba:
+    "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 12%, #000 34%, rgba(0,0,0,0.45) 66%, transparent 100%)",
   ambos:
-    "linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.16) 40%, rgba(0,0,0,0.16) 60%, #000 100%)",
+    "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 18%, rgba(0,0,0,0.18) 50%, rgba(0,0,0,0.5) 82%, transparent 100%)",
 } as const;
 
 export function PatronMani({
