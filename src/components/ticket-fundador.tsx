@@ -2,11 +2,23 @@ import { Reveal } from "@/components/reveal";
 import { TicketVisual } from "@/components/ticket-visual";
 import { BotonComprar } from "@/components/boton-comprar";
 import { CountdownGrande } from "@/components/countdown";
+import { PatronMani } from "@/components/patron-mani";
+import { PuenteColor } from "@/components/puente-color";
 
 export function TicketFundador() {
   return (
-    <section id="fundador" className="bg-dark px-6 py-32 text-paper">
-      <div className="mx-auto max-w-2xl text-center">
+    <section
+      id="fundador"
+      className="relative overflow-hidden bg-dark px-6 pb-32 pt-40 text-paper"
+    >
+      {/* El salto crema → marrón era el corte más duro de la página: el
+          degradé arranca con el color de la sección de arriba y se disuelve. */}
+      <PuenteColor desde="bg" posicion="arriba" altura={200} />
+      {/* Maníes en crema — el color de la sección de arriba — densos contra
+          ese mismo borde, así el patrón continúa cruzando la transición. */}
+      <PatronMani variante="crema" borde="arriba" opacidad={0.06} />
+
+      <div className="relative mx-auto max-w-2xl text-center">
         <Reveal>
           <span className="text-sm font-semibold uppercase tracking-[0.18em] text-gold-bright">
             Para los primeros
@@ -28,15 +40,15 @@ export function TicketFundador() {
       </div>
 
       {/* Cuenta regresiva: la condición ahora es solo el tiempo, no una cantidad */}
-      <Reveal delay={0.1} className="mt-14 flex justify-center [&_*]:!text-paper">
+      <Reveal delay={0.1} className="relative mt-14 flex justify-center [&_*]:!text-paper">
         <CountdownGrande />
       </Reveal>
 
-      <Reveal delay={0.1} className="mx-auto mt-16 max-w-lg">
+      <Reveal delay={0.1} className="relative mx-auto mt-16 max-w-lg">
         <TicketVisual />
       </Reveal>
 
-      <div className="mx-auto mt-32 max-w-2xl text-center">
+      <div className="relative mx-auto mt-32 max-w-2xl text-center">
         <Reveal>
           <h3 className="font-display text-3xl font-semibold sm:text-4xl">
             ¿Qué significa ser <span className="text-gradient-gold">fundador</span>?
@@ -64,7 +76,7 @@ export function TicketFundador() {
         </div>
       </div>
 
-      <div className="mx-auto mt-32 max-w-2xl text-center">
+      <div className="relative mx-auto mt-32 max-w-2xl text-center">
         <Reveal>
           <h3 className="font-display text-3xl font-semibold sm:text-4xl">
             Pero hay una condición.

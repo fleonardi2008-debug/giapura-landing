@@ -2,10 +2,16 @@ import { Reveal } from "@/components/reveal";
 import { BotonComprar } from "@/components/boton-comprar";
 import { Wordmark } from "@/components/wordmark";
 import { Aurora } from "@/components/aurora";
+import { PuenteColor } from "@/components/puente-color";
 
 export function Gracias() {
   return (
-    <section id="gracias" className="relative overflow-hidden bg-dark px-6 py-32 text-center text-paper">
+    <section
+      id="gracias"
+      className="relative overflow-hidden bg-dark px-6 pb-32 pt-40 text-center text-paper"
+    >
+      {/* Entrada al marrón desde el crema de Cobertura. */}
+      <PuenteColor desde="bg-2" posicion="arriba" altura={200} />
       <Aurora tone="dark" />
 
       <div className="relative z-10">

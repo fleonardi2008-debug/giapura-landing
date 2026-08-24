@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Reveal } from "@/components/reveal";
 import { BotonComprar } from "@/components/boton-comprar";
+import { PuenteColor } from "@/components/puente-color";
 
 // Capturas reales de WhatsApp de clientes. Dimensiones intrínsecas (ya
 // corregidas por orientación EXIF) para que next/image evite layout shift.
@@ -36,8 +37,11 @@ const CAPTURAS = [
 
 export function Testimonios() {
   return (
-    <section id="opiniones" className="bg-bg-2 px-6 py-28">
-      <div className="mx-auto max-w-6xl">
+    <section id="opiniones" className="relative overflow-hidden bg-bg-2 px-6 pb-28 pt-36">
+      {/* Salida del marrón de Fundador hacia el crema, sin corte seco. */}
+      <PuenteColor desde="dark" posicion="arriba" altura={180} />
+
+      <div className="relative mx-auto max-w-6xl">
         <Reveal>
           <h2 className="font-display text-center text-5xl font-semibold leading-[0.98] sm:text-6xl">
             No hace falta que me <span className="text-gradient-gold">creas a mí</span>.

@@ -1,5 +1,6 @@
 import { Reveal } from "@/components/reveal";
 import { WHATSAPP_NUMERO } from "@/lib/config";
+import { PuenteColor } from "@/components/puente-color";
 
 const linkWhatsapp = WHATSAPP_NUMERO ? (
   <a
@@ -62,8 +63,11 @@ const PREGUNTAS = [
 
 export function Faq() {
   return (
-    <section id="faq" className="border-t border-line px-6 py-24">
-      <div className="mx-auto max-w-3xl">
+    <section id="faq" className="relative overflow-hidden px-6 pb-24 pt-32">
+      {/* Sin borde duro: el crema de Testimonios se disuelve en el beige. */}
+      <PuenteColor desde="bg-2" posicion="arriba" altura={130} />
+
+      <div className="relative mx-auto max-w-3xl">
         <Reveal>
           <h2 className="font-display text-center text-4xl font-semibold sm:text-5xl">
             Preguntas <span className="text-gradient-gold">frecuentes</span>

@@ -4,6 +4,7 @@ import { BotonComprar } from "@/components/boton-comprar";
 import { Countdown } from "@/components/countdown";
 import { Leaf, ShieldCheck, Heart, Barbell } from "@phosphor-icons/react/dist/ssr";
 import { IconMani, IconSinAzucar } from "@/components/icon-mani";
+import { PatronMani } from "@/components/patron-mani";
 
 // Iconos SVG (Phosphor) en vez de emoji: escalan bien, se controlan por
 // diseño (color/peso) y no dependen de la fuente del sistema operativo.
@@ -20,8 +21,12 @@ const CARACTERISTICAS = [
 
 export function Comprar() {
   return (
-    <section id="comprar" className="relative px-6 pb-12 pt-6 sm:py-12">
-      <div className="mx-auto grid max-w-5xl items-center gap-14 lg:grid-cols-2">
+    <section id="comprar" className="relative overflow-hidden px-6 pb-12 pt-6 sm:py-12">
+      {/* Maníes en marrón — el color de la sección de abajo — densos hacia el
+          borde inferior, para que el patrón cruce hacia la sección oscura. */}
+      <PatronMani variante="marron" borde="abajo" opacidad={0.07} />
+
+      <div className="relative mx-auto grid max-w-5xl items-center gap-14 lg:grid-cols-2">
         <Reveal className="flex justify-center">
           <Image
             src="/frasco-natural.png"

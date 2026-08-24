@@ -1,11 +1,14 @@
 import { Reveal } from "@/components/reveal";
 import { AR_MAIN, AR_TDF } from "@/lib/argentina-path";
 import { BotonComprar } from "@/components/boton-comprar";
+import { PuenteColor } from "@/components/puente-color";
 
 export function Cobertura() {
   return (
-    <section id="envios" className="border-y border-line bg-bg-2 px-6 py-28">
-      <div className="mx-auto grid max-w-5xl items-center gap-12 md:grid-cols-2">
+    <section id="envios" className="relative overflow-hidden bg-bg-2 px-6 pb-28 pt-36">
+      <PuenteColor desde="bg" posicion="arriba" altura={130} />
+
+      <div className="relative mx-auto grid max-w-5xl items-center gap-12 md:grid-cols-2">
         <div>
           <Reveal>
             <span className="text-sm font-semibold uppercase tracking-[0.18em] text-gold">
@@ -68,7 +71,7 @@ export function Cobertura() {
         </Reveal>
       </div>
 
-      <Reveal delay={0.1} className="mx-auto mt-16 flex max-w-5xl justify-center">
+      <Reveal delay={0.1} className="relative mx-auto mt-16 flex max-w-5xl justify-center">
         <BotonComprar label="Pedilo a tu casa" />
       </Reveal>
     </section>

@@ -95,6 +95,13 @@ export function Intro() {
         </motion.div>
       </div>
 
+      {/* Salida del hero: la foto se disuelve en el beige de la sección
+          siguiente, así el corte foto → color no queda seco. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-28 bg-gradient-to-b from-transparent to-bg sm:h-36"
+      />
+
       {/* Ilustración de tapa (línea blanca), de acento en la esquina — solo
           en mobile, el logo ya cumple esa función en desktop. */}
       <motion.div
