@@ -67,7 +67,7 @@ export function Faq() {
       {/* Sin borde duro: el crema de Testimonios se disuelve en el beige. */}
       <PuenteColor desde="bg-2" posicion="arriba" altura={90} />
 
-      <div className="relative mx-auto max-w-3xl">
+      <div className="relative z-10 mx-auto max-w-3xl">
         <Reveal>
           <h2 className="font-display text-center text-4xl font-semibold sm:text-5xl">
             Preguntas <span className="text-gradient-gold">frecuentes</span>

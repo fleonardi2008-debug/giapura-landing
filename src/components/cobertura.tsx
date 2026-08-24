@@ -8,7 +8,7 @@ export function Cobertura() {
     <section id="envios" className="relative overflow-hidden bg-bg-2 px-6 pb-28 pt-36">
       <PuenteColor desde="bg" posicion="arriba" altura={130} />
 
-      <div className="relative mx-auto grid max-w-5xl items-center gap-12 md:grid-cols-2">
+      <div className="relative z-10 mx-auto grid max-w-5xl items-center gap-12 md:grid-cols-2">
         <div>
           <Reveal>
             <span className="text-sm font-semibold uppercase tracking-[0.18em] text-gold">
@@ -71,7 +71,7 @@ export function Cobertura() {
         </Reveal>
       </div>
 
-      <Reveal delay={0.1} className="relative mx-auto mt-16 flex max-w-5xl justify-center">
+      <Reveal delay={0.1} className="relative z-10 mx-auto mt-16 flex max-w-5xl justify-center">
         <BotonComprar label="Pedilo a tu casa" />
       </Reveal>
     </section>

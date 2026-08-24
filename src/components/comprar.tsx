@@ -22,18 +22,22 @@ const CARACTERISTICAS = [
 export function Comprar() {
   return (
     <section id="comprar" className="relative overflow-hidden px-6 pb-12 pt-6 sm:py-12">
-      {/* Maníes en marrón — el color de la sección de abajo — densos hacia el
-          borde inferior, para que el patrón cruce hacia la sección oscura. */}
-      <PatronMani variante="marron" borde="abajo" opacidad={0.17} />
+      {/* Maníes en marrón, anclados al borde de abajo: así el patrón corta
+          sobre una junta del tile y las cáscaras siguen en la sección
+          siguiente en vez de reiniciarse. */}
+      <PatronMani variante="marron" borde="abajo" anclaje="bottom" opacidad={0.17} />
 
-      <div className="relative mx-auto grid max-w-5xl items-center gap-14 lg:grid-cols-2">
+      <div className="relative z-10 mx-auto grid max-w-5xl items-center gap-14 lg:grid-cols-2">
         <Reveal className="flex justify-center">
           <Image
             src="/frasco-natural.png"
             alt="Pasta de maní Giapura Natural"
             width={597}
             height={1059}
-            className="h-auto w-full max-w-md"
+            /* En desktop se achica: con max-w-md la columna del frasco medía
+               795px contra 581px la del texto, y items-center dejaba 107px de
+               aire muerto arriba y abajo del texto. En mobile no cambia. */
+            className="h-auto w-full max-w-md lg:max-w-[19rem]"
           />
         </Reveal>
 

@@ -44,7 +44,7 @@ export function Testimonios() {
       {/* Salida del marrón de Fundador hacia el crema, sin corte seco. */}
       <PuenteColor desde="dark" posicion="arriba" altura={180} />
 
-      <div className="relative mx-auto max-w-6xl">
+      <div className="relative z-10 mx-auto max-w-6xl">
         {/* El titular carga todo el peso; el párrafo largo que había debajo
             competía con él y no dejaba que nada resaltara. */}
         <Reveal>
