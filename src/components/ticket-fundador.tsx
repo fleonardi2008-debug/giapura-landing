@@ -6,9 +6,11 @@ import { PatronMani } from "@/components/patron-mani";
 import { PuenteColor } from "@/components/puente-color";
 
 const BENEFICIOS = [
-  "Accesos anticipados.",
-  "Beneficios exclusivos.",
-  "Y cosas que voy a ir revelando con el tiempo.",
+  "Descuentos exclusivos",
+  "Elecciones de la marca",
+  "Contenido exclusivo",
+  "Acceso anticipado a futuros eventos",
+  "Y más cosas que vamos a ir construyendo juntos",
 ];
 
 export function TicketFundador() {
@@ -89,12 +91,14 @@ export function TicketFundador() {
           </Reveal>
         </div>
 
-        <div className="mx-auto mt-12 flex max-w-xs flex-col gap-3">
+        {/* max-w-sm y no xs: con los textos largos, en xs casi todos los
+            chips caían en dos renglones y el bloque perdía prolijidad. */}
+        <div className="mx-auto mt-12 flex max-w-sm flex-col gap-3">
           {BENEFICIOS.map((t, i) => (
-            <Reveal key={t} delay={0.26 + i * 0.08}>
+            <Reveal key={t} delay={0.26 + i * 0.07}>
               <p
                 className="chip-flota group flex items-center gap-3 rounded-full border border-paper/15 bg-paper/[0.04] px-5 py-3 text-left text-paper transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:border-gold-bright/50 hover:bg-paper/[0.09]"
-                style={{ animationDelay: `${i * 0.9}s` }}
+                style={{ animationDelay: `${i * 0.7}s` }}
               >
                 <span
                   aria-hidden

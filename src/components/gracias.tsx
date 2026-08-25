@@ -21,20 +21,29 @@ export function Gracias() {
         </span>
       </Reveal>
 
-      <div className="mx-auto mt-10 max-w-xl space-y-6 text-lg leading-relaxed text-paper/85">
+      {/* max-w-2xl: con xl, la última línea de la cita no entraba y se partía
+          en dos, rompiendo el bloque de tres que se buscaba. */}
+      <div className="mx-auto mt-10 max-w-2xl space-y-6 text-lg leading-relaxed text-paper/85">
         <Reveal delay={0.05}>
           <p>Si llegaste hasta acá, es porque decidiste ser parte de esta historia.</p>
         </Reveal>
+        {/* Cortes de línea fijos para que el bloque respire parejo: el
+            quiebre natural partía las frases en lugares distintos según el
+            ancho y el remate perdía cadencia. */}
         <Reveal delay={0.1}>
           <p>
-            Hace seis meses esto era una idea. Hoy puedo hacer envíos a{" "}
-            <span className="font-semibold text-paper">todo el país</span>.
+            <span className="block">Hace seis meses esto era una idea.</span>
+            <span className="block">
+              Hoy puedo hacer envíos a{" "}
+              <span className="font-semibold text-paper">todo el país</span>.
+            </span>
           </p>
         </Reveal>
         <Reveal delay={0.15}>
           <p className="font-display text-2xl leading-snug text-gold-bright sm:text-3xl">
-            Ojalá dentro de unos años podamos mirar para atrás y decir: “qué locura haber
-            estado desde el principio”.
+            <span className="block">Ojalá dentro de unos años</span>
+            <span className="block">podamos mirar para atrás y decir:</span>
+            <span className="block">“qué locura haber estado desde el principio”.</span>
           </p>
         </Reveal>
         <Reveal delay={0.2}>
